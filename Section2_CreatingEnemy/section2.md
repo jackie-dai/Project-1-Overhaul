@@ -5,13 +5,9 @@ What fun is a game if there are no enemies to fight?
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight and if the player is within the enemy's line of sight, it will move towards the player and explode upon contact; dealing damage to the player. In return, the player will also be able to deal damage back to the enemy. 
 
 ### Enemy setup
-Like you did with the player, make a new game object and name it *Enemy*, but this time attach a Circle Collider 2D. 
-Modify the Rigidbody 2D by:
+Like you did with the player, make a new game object and name it *Enemy*, attach a Circle Collider 2D and a Rigidbody 2D. 
+Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
 
-- setting gravity to zero
-- freezing z rotation
-
-Like so:
 [insert fig1]
 
 Next, set the Enemy game object's tag to Enemy.
@@ -19,7 +15,9 @@ Now, we have a basic enemy game object.
 
 An enemy should attack the player if the player is within a certain radius. 
 
-To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object *LineOfSight*. Attach a Circle Collider 2D to the *LineOfSight* game object and **check the IsTrigger checkbox**. When the player game object is within this circle collider, this will tell the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range. We are going to go with 4. 
+To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object *LineOfSight*. 
+
+Attach a Circle Collider 2D to your newly created *LineOfSight* game object and **check the IsTrigger checkbox**. When the player enters this circle collider, it will notify the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range.
 
 [insert img of LineOfSight Inspector]
 
@@ -52,5 +50,11 @@ In awake(), set the rb variable to the RigidBody 2D component attached to the en
 Using the three variables we just created, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the *Enemy* script, in addition to the OnTriggerEnter2D script in the *LineOfSight* script. 
 
 *Task: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script.
+
+Solution (translate hex to ASCII): 
+
+'''
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
+'''
 
 ### Dealing damage to the player
