@@ -1,4 +1,4 @@
-## Section 2
+## Section 2 - Creating the enemies
 
 What fun is a game if there are no enemies to fight?
 
@@ -53,8 +53,8 @@ Using the three variables we just created, implement the logic for the enemy's m
 
 Solution (translate hex to ASCII): 
 
-'''
+```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
-'''
+```
 
 ### Dealing damage to the player
