@@ -71,6 +71,3 @@ Task: Implement Explode()
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the *explosionRadius*
 The raycast returns an array of RaycastHit2D which can thought of as game objects and hold the basic properties such as *transform*.
-
-
-### Dealing damage to the player
