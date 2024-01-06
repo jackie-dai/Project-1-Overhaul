@@ -32,3 +32,13 @@ Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* 
 
 ![](./images/fig3.png)
 [insert image of the three regions --fig3]
+
+Lets move the enemy towards the player. First, we need three variables:
+
+A float variable named *moveSpeed*. This variable will let us control the movement speed of the enemy. Make it pubilc so that we can adjust the enemy's speed in the unity inspector. 
+
+To actually move the player, **create a RigidBody 2D variable** to hold a reference to the enemy's rigidbody.
+
+The enemy will be moving towards the enemy, so it needs to know the location of the player game object. Create a Transform variable named player. Make this public or protected (protected means scripts of children game objects have access).
+
+Set the rb variable to a reference of the RigidBody 2D by 
