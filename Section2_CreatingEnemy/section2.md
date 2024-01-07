@@ -93,7 +93,7 @@ Solution (translate hex below to ASCII):
 
 Enemies look boring as a static sprite. Lets give it some character by animating it's walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
 
-We already provide you with a ready-to-go animation located iun *Assets > Animations > Enemy, so you can just drag and drop that in. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your animation.
+We already provide you with a ready-to-go animation located in *Assets > Animations > Enemy, so you can just drag and drop that in. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your animation.
 
 https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
