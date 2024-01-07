@@ -65,9 +65,11 @@ In the *Enemy* script, create a new *Attack_variables* region and add three vari
 
 [img of attack variables fig5]
 
-Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. 
+Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
-Task: Implement Explode()
+*Task: implement Explode()*
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the *explosionRadius*.
 The raycast returns an array of RaycastHit2D which can thought of as game objects and hold the same basic properties such as *transform*.
+
+
