@@ -31,7 +31,8 @@ Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* 
 3. Movement_functions
 
 
-![](./images/fig3.png)
+![](./images/fig2.3.png) Fig 2.3
+
 
 ### Enemy movement system
 
@@ -45,7 +46,7 @@ The enemy will be moving towards the enemy, so it needs to know the location of 
 
 In awake(), set the rb variable to the RigidBody 2D component attached to the enemy game object.
 
-[img of findComponent fig4]
+![](./images/fig2.4.png) Fig 2.4
 
 Using the three variables we just created, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the *Enemy* script, in addition to the OnTriggerEnter2D script in the *LineOfSight* script. 
 
@@ -63,7 +64,7 @@ Now, when the player gets too close to the enemy, the ghost should chase the pla
 
 In the *Enemy* script, create a new *Attack_variables* region and add three variables to it: *explosionDamage*, *explosionRadius*, and *explosionObj*. The first two are of type float and *explosionObj* is of type GameObject. All three should be public, so we can adjust and reference as needed in the unity inspector. 
 
-[img of attack variables fig5]
+![](./images/fig2.5.png) Fig 2.5
 
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
