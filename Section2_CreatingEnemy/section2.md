@@ -5,7 +5,7 @@ What fun is a game if there are no enemies to fight?
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight and if the player is within the enemy's line of sight, it will move towards the player and explode upon contact; dealing damage to the player. In return, the player will also be able to deal damage back to the enemy. 
 
 ### Enemy setup
-Like you did with the player, make a new game object and name it *Enemy*, attach a Circle Collider 2D and a Rigidbody 2D. 
+Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D. 
 Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
 
 ![](./images/fig2.1.png) Fig 2.1
@@ -15,7 +15,7 @@ Now, we have a basic enemy game object.
 
 An enemy should attack the player if the player is within a certain radius. 
 
-To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object *LineOfSight*. 
+To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object `LineOfSight`. 
 
 Attach a Circle Collider 2D to your newly created *LineOfSight* game object and **check the IsTrigger checkbox**. When the player enters this circle collider, it will notify the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range.
 
@@ -24,7 +24,7 @@ Attach a Circle Collider 2D to your newly created *LineOfSight* game object and 
 ### Setting up the Enemy script
 
 Now, we need to implement the logic to make the enemy move towards and attack the player. 
-Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* script, set up 3 regions:
+Make a new script in the scripts folder and name it `Enemy`. Inside the `Enemy` script, set up 3 regions:
 
 1. Movement_variables
 2. Unity_functions
@@ -38,11 +38,11 @@ Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* 
 
 Lets move the enemy towards the player. First, we need three variables:
 
-Inisde the Movement_variables region, create a **float variable named *moveSpeed*.** This variable will let us control the movement speed of the enemy. Make it pubilc so that we can adjust the enemy's speed in the unity inspector. 
+Inisde the Movement_variables region, create a **float variable named `moveSpeed`*.** This variable will let us control the movement speed of the enemy. Make it public so that we can adjust the enemy's speed in the unity inspector. 
 
-Below Movement_variables, create a new region named *Physics_componenets* and **add a RigidBody 2D variable named EnemyRB** to it. This way we can manipulate the enemy's rigidbody for movement.
+Below Movement_variables, create a new region named *Physics_componenets* and **add a RigidBody 2D variable named `EnemyRB`** to it. This way we can manipulate the enemy's rigidbody for movement.
 
-The enemy will be moving towards the enemy, so it needs to know the location of the player game object. **Under a new Targeting_variables region, create a Transform variable named player.** Make this public or protected (protected means scripts of children game objects have access).
+The enemy will be moving towards the enemy, so it needs to know the location of the player game object. **Under a new Targeting_variables region, create a Transform variable named `player``.** Make this public or protected (protected means scripts of children game objects have access).
 
 In the awake() function, set the rb variable to the RigidBody 2D component attached to the enemy game object by using *GetComponent<>()* (fig 2.4).
 
@@ -62,7 +62,7 @@ Solution (translate hex to ASCII):
 
 Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
 
-In the *Enemy* script, create a new *Attack_variables* region and add three variables to it: *explosionDamage*, *explosionRadius*, and *explosionObj*. The first two are of type float and *explosionObj* is of type GameObject. All three should be public, so we can adjust and reference as needed in the unity inspector. 
+In the `Enemy` script, create a new `Attack_variables` region and add three variables to it: `explosionDamage`, `explosionRadius`, and `explosionObj`. The first two are of type float and *explosionObj* is of type GameObject. All three should be public, so we can adjust and reference as needed in the unity inspector. 
 
 ![](./images/fig2.5.png) Fig 2.5
 
@@ -70,8 +70,8 @@ Inside the same *Enemy* script, there is a Explode() function you need to implem
 
 **Task: implement Explode()**
 
-Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the *explosionRadius*.
-The raycast returns an array of all objects caught in the circle cast. They will be of type *RaycastHit2D* which hold the same basic properties as game objects such as the *transform* and *tag* property.
+Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
+The raycast returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.
 Also make sure to set your attack variables in the unity inspector before testing your code! We provide a explosion prefab located in *Assets > Prefabs* that you can drag into *ExplosionObj*.
 
 Solution (translate hex below to ASCII):
@@ -94,7 +94,7 @@ Solution (translate hex below to ASCII):
 
 Enemies look boring as a static sprite. Lets give it some character by animating their walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
 
-Add an *animator* component to the Enemy. We already provide you with a ready-to-go animation located in *Assets > Animations > Enemy*, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
+Add an `animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
 
 https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
