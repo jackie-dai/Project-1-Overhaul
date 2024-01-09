@@ -4,7 +4,91 @@
 ![Alt Text](https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif)
 
 
+___
+## In this section, we will be creating the player and their basic actions. This will include a couple things:
+1. move in four directions
+2. attack in four directions
+3. interact with chests (will be done in a later section)
 
+
+Before creating the player, disable all other components in the scene, specifically `Grassy Map`, `AudioManager`, and `CM vcam1`. Look into the inspector tab, and click the checkmark in the top left corner to remove it from view.
+
+![disable view](images/sec1_1.png)
+
+
+Create a 2D sprite by right clicking in the hierarchy and going to `2D Object -> Sprite` and reset it's position by looking in the `Transform` component and changing the positions to 0. Then change the name of sprite from `New Sprite` to `Player`. 
+
+{: .note}
+> Keep in mind that Unity is strict on naming conventions, and this guide will assume you name it exactly as the given. `Player` is not the same as `player`.
+> 
+
+
+In the `Sprite Renderer` component, change the Sprite from None to `idle_east_1`.
+
+Add a new component titled `Rigidbody 2D` and a `Capsule Collider 2D`. Make sure that the `Body Type` for the Rigidbody component is `Dynamic` and `Gravity Scale` is `0`. Check the `Freeze Rotation` box as well.
+
+In the `Capsule Collider`, we want to set the hitbox of the sprite to be the same size as the sprite. In order to add some depth, we will set the hitbox as the feet of the sprite. You may use the numbers in the image below, and to check if your `Rigidbody` is also correct.
+![Alt text](images/sec1_2.png)
+
+Now go into the `Scripts` folder, and create a new script by right clicking inside the folder, and `Create -> C# Script`. Name it `PlayerController`, and then open the file. Delete the two starter functions (the Start and Update functions) so then we can start from scratch.
+
+In order to keep our code clean, we will use `#region` boundaries to sort and organize our variables. You can see it in the given code here.
+
+```
+#region Movement_variables
+public float movespeed;
+float x_input;
+float y_input;
+#endregion
+
+#region Physics_components
+Rigidbody2D PlayerRB;
+#endregion
+
+#region Unity_functions
+private void Awake()
+{
+
+}
+
+private void Update()
+{
+i
+}
+#endregion
+
+```
+
+- `movespeed` will control how fast the player can move. Note that it is public, such that we can edit it in the inspector in real time to try different speeds. 
+- `x_input` and `y_input` will be used to determine where the player should be going based on the user input. 
+- `PlayerRb` will control the forces we add onto the player.
+- `Awake()` is called ONCE when the object is created, and never again.
+- `Update()` is called EVERY frame. This means that **we do not want any intensive or heavy code in Update** as that would be costly, and could lag, or even crash your game. 
+
+Here, we will leave you with a small coding exercise. If you can't do it off the top of your head, no worries! You can follow the project video linked [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=365)
+ with the timestamp. 
+
+
+- In `Awake()`, set a variable `PlayerRB` to the `Rigidbody2D` component using the `GetComponent` function.
+- In `Update()`, you will need to do two things.
+  1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
+     -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement.
+     -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement, and set them to `x_input` and `y_input` respectfully.
+  2. Create the function `private void Move(){}` function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
+     -  You will need 5 cases to determine what the player should do.
+     -  Set `PlayerRB.velocity` to `Vector.up/down/left/right` based on which case you are on.
+  
+To check if we have coded this correctly, drag the `PlayerController` script into the component section of our Player, and put in some value for Movespeed.
+
+{: .note}
+> If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the CinemachineBrain component, and set the Z position to be -3.
+
+Now, click the play button once, and, after it loads, see if your player is visible, and moves using the WASD keys. 
+
+{: .highlight}
+You may notice that some keys override the keys of others - this is because the tutorial's implewmentation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+
+ 
 <!-- 
 
 
