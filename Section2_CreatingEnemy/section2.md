@@ -8,7 +8,7 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 Like you did with the player, make a new game object and name it *Enemy*, attach a Circle Collider 2D and a Rigidbody 2D. 
 Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
 
-[insert fig1]
+![](./images/fig2.1.png) Fig 2.1
 
 Next, set the Enemy game object's tag to Enemy.
 Now, we have a basic enemy game object. 
@@ -19,9 +19,9 @@ To create a detection system, lets make a new game object that is a **child of t
 
 Attach a Circle Collider 2D to your newly created *LineOfSight* game object and **check the IsTrigger checkbox**. When the player enters this circle collider, it will notify the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range.
 
-[insert img of LineOfSight Inspector]
+![](./images/fig2.2.png) Fig 2.2
 
-### Programming the enemy logic
+### Setting up the Enemy script
 
 Now, we need to implement the logic to make the enemy move towards and attack the player. 
 Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* script, set up 3 regions:
@@ -34,17 +34,17 @@ Make a new script in the scripts folder and name it *Enemy*. Inside the *Enemy* 
 ![](./images/fig2.3.png) Fig 2.3
 
 
-### Enemy movement system
+### Enemy movement
 
 Lets move the enemy towards the player. First, we need three variables:
 
-A float variable named *moveSpeed*. This variable will let us control the movement speed of the enemy. Make it pubilc so that we can adjust the enemy's speed in the unity inspector. 
+Inisde the Movement_variables region, create a **float variable named *moveSpeed*.** This variable will let us control the movement speed of the enemy. Make it pubilc so that we can adjust the enemy's speed in the unity inspector. 
 
-To actually move the player, **create a RigidBody 2D variable** to hold a reference to the enemy's rigidbody.
+Below Movement_variables, create a new region named *Physics_componenets* and **add a RigidBody 2D variable named EnemyRB** to it. This way we can manipulate the enemy's rigidbody for movement.
 
-The enemy will be moving towards the enemy, so it needs to know the location of the player game object. Create a Transform variable named player. Make this public or protected (protected means scripts of children game objects have access).
+The enemy will be moving towards the enemy, so it needs to know the location of the player game object. **Under a new Targeting_variables region, create a Transform variable named player.** Make this public or protected (protected means scripts of children game objects have access).
 
-In awake(), set the rb variable to the RigidBody 2D component attached to the enemy game object.
+In the awake() function, set the rb variable to the RigidBody 2D component attached to the enemy game object by using *GetComponent<>()* (fig 2.4).
 
 ![](./images/fig2.4.png) Fig 2.4
 
@@ -60,7 +60,7 @@ Solution (translate hex to ASCII):
 
 ### Dealing damage to the player 
 
-Now, when the player gets too close to the enemy, the ghost should chase the player. Currently, if you stop moving, the ghost will just push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player.
+Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
 
 In the *Enemy* script, create a new *Attack_variables* region and add three variables to it: *explosionDamage*, *explosionRadius*, and *explosionObj*. The first two are of type float and *explosionObj* is of type GameObject. All three should be public, so we can adjust and reference as needed in the unity inspector. 
 
@@ -90,11 +90,11 @@ Solution (translate hex below to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 63 77 74 5A 78 74 78 76 30 37 4C 68 52 51 39 50 26 74 3D 31 35 31 32
 ```
 
-### Enemy animation (optional)
+### Enemy animation 
 
-Enemies look boring as a static sprite. Lets give it some character by animating it's walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
+Enemies look boring as a static sprite. Lets give it some character by animating their walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
 
-We already provide you with a ready-to-go animation located in *Assets > Animations > Enemy*, so you can just drag and drop that in. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your animation.
+Add an *animator* component to the Enemy. We already provide you with a ready-to-go animation located in *Assets > Animations > Enemy*, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
 
 https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
