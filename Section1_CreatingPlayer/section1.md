@@ -6,11 +6,13 @@
 
 ___
 ## In this section, we will be creating the player and their basic actions. This will include a couple things:
-1. move in four directions
-2. attack in four directions
-3. interact with chests (will be done in a later section)
+
+### 1. move in four directions
+### 2. attack in four directions
+### 3. interact with chests (will be done in a later section)
 
 
+## Player Movement
 Before creating the player, disable all other components in the scene, specifically `Grassy Map`, `AudioManager`, and `CM vcam1`. Look into the inspector tab, and click the checkmark in the top left corner to remove it from view.
 
 ![disable view](images/sec1_1.png)
@@ -53,7 +55,7 @@ private void Awake()
 
 private void Update()
 {
-i
+
 }
 #endregion
 
@@ -86,7 +88,55 @@ To check if we have coded this correctly, drag the `PlayerController` script int
 Now, click the play button once, and, after it loads, see if your player is visible, and moves using the WASD keys. 
 
 {: .highlight}
-You may notice that some keys override the keys of others - this is because the tutorial's implewmentation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+You may notice that some keys override the keys of others - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+
+## Player Attacks
+
+Copy and paste this region which will define some new variables for you.
+
+```
+#region Attack_variables
+public float Damage;
+float attackspeed = 1;
+float attackTimer;
+public float hitboxtiming;
+public float endanimationtiming;
+bool isAttacking;
+Vector2 currDirection;
+#endregion
+
+#region Attack_functions
+private void Attack()
+{
+    Debug.Log("attacking now");
+}
+
+IEnumerator AttackRoutine()
+{
+    yield return null;
+}
+
+#endregion
+```
+
+
+- `Damage` is how much damage you do each hit.
+- `attackspeed` is how long you need to wait before you have to attack again. 
+- `attackTimer` will work with `attackSpeed` by timing when the player last hit. On attacking, it will reset, and count down once more.
+- `hitboxtiming` and `endanimationtiming` will allow us to have a delay from when the animation starts, to when we actually hit the enemy. This will make the animation feel more convincing by having it hit when the sword is being swung, rather than when it is winding up.
+- `isAttacking` will let us know if the user has inputted an attack, which will then pause our movement.
+- `currDirection` will make sure that if we attack right, we attack right, rather than to a different direction.
+- `Attack()` is the function that will be called when the player attacks.
+- `AttackRoutine()` will handle animations and hitboxes for the attack mechanisms. 
+
+{: .note}
+> You may notice that it is an IEnumerator rather than a public or private function. This is an example of a **coroutine** which you will learn about in a later lab. If you have taken 61A, it is similar to yield functions and generators.
+
+Now, in `Update()`, using the key `j` as your attack key, call the private `Attack()` function when the j key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1149)
+
+
+Now, if you save, and press play, you should see in the bottom left a print statement saying `attacking now`. 
+
 
  
 <!-- 
