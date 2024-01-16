@@ -27,4 +27,4 @@ Under a new region `Healthpack_variables`, create a variable with type `GameObje
 
 **Task: fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a healthpack (Again, make sure to attach the script before testing)** 
 
-Drag and drop your working chests into the locations of your choosing.
+Make your `Chest` into a prefab. Now, scatter some chests into your map by dragging and dropping the `Chest` prefabs into your scene.
