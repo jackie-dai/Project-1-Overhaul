@@ -9,10 +9,15 @@ ___
 
 ### 1. move in four directions
 ### 2. attack in four directions
-### 3. interact with chests (will be done in a later section)
 
 
 ## Player Movement
+
+#### Summary:
+1. Create the player object, and add the player movement script
+2. Be able to move the player object in any direction.
+
+
 Before creating the player, disable all other components in the scene, specifically `Grassy Map`, `AudioManager`, and `CM vcam1`. Look into the inspector tab, and click the checkmark in the top left corner to remove it from view.
 
 ![disable view](images/sec1_1.png)
@@ -92,7 +97,12 @@ You may notice that some keys override the keys of others - this is because the 
 
 ## Player Attacks
 
-Copy and paste this region which will define some new variables for you.
+#### Summary:
+1. Be able to attack when pressing the 'J' key in all four directions
+2. Cast the hitbox in the right direction
+3. Add animations
+
+Copy and paste this code block into your `PlayerController` script, which will define some new variables for you.
 
 ```
 #region Attack_variables
@@ -132,12 +142,73 @@ IEnumerator AttackRoutine()
 {: .note}
 > You may notice that it is an IEnumerator rather than a public or private function. This is an example of a **coroutine** which you will learn about in a later lab. If you have taken 61A, it is similar to yield functions and generators.
 
-Now, in `Update()`, using the key `j` as your attack key, call the private `Attack()` function when the j key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1149)
+In `Update()`, using the key `j` as your attack key, call the private `Attack()` function when the j key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1149)
 
 
-Now, if you save, and press play, you should see in the bottom left a print statement saying `attacking now`. 
+If you save, and press play, you should see in the bottom left a print statement saying `attacking now`. This is your console, and will be very helpful in debugging, and testing code in labs, and projects. It will also display any warnings, and errors that you may have.
+
+We will now make it such that you cannot spam the ability as fast as you can using the `attackspeed` and `attackTimer` variables.
+
+Initialize the `attackTimer` variable in `Awake()` to 0, as that will indicate that we can attack again. 
+
+Then, in Update, add a conditional statement to check if `attackTimer < 0`. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function, which will now also add `attackTimer = attackspeed;` to set the cooldown. If you need help, the timestamp is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1340).
+
+Now, if you go to the Player object, there be an input field for Attackspeed, so set it to `3`, save, and play the game to see if the cooldown is working. 
+
+We now want it to only attack in the direction we are facing, which will use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`
+
+You can now check to make sure that it works by adding another Debug statement in `Attack()` to check the current direction with `Debug.Log(currDirection);` which will print out two values to display the current direction. 
+
+Finally, in the inspector, change the Attackspeed to 0.5, since we don't only want to be able to attack every 3 seconds.
+
+Now, we will start on being able to cast the hitbox in the right direction, which will mainly be done in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`.
+
+`AttackRoutine()` needs to be called using the function `StartCoroutine()`, which will be run at the very end of our `Attack()` function. 
+
+Then, you may copy this code into the `AttackRoutine()` function:
+
+```
+IEnumerator AttackRoutine()
+{
+    isAttacking = true;
+    PlayerRB.velocity = Vector2.zero;
+    yield return new WaitForSeconds(hitboxtiming);
+    Debug.Log("Casting hitbox now");
+    RaycastHit2D[] hits = Physics2D.BoxCastAll(PlayerRB.position + currDirection, Vector2.one, 0f, Vector2.zero);
+
+    foreach(RaycastHit2D hit in hits)
+    {
+        if(hit.transform.CompareTag("Enemy"))
+        {
+            Debug.Log("Tons of damage");
+        }
+    }
+
+    yield return new WaitForSeconds(hitboxtiming);
+    isAttacking = false;
+
+}
+```
+  - We set `isAttacking` to true, and set the player's velocity to 0, as, a design choice, the player will not be able to move when they attack.
+  - `yield return new WaitForSeconds(hitboxtiming);` will basically pause the running of the function for `hitboxtiming` number of seconds before running the next line.
+  - `hits` is an array of all the objects that are colliding with a box that is in front of the player. To learn more about `BoxCastAll`, you can check out t he function description [here](https://docs.unity3d.com/ScriptReference/Physics2D.BoxCastAll.html). **We highly suggest you read through the documentation and understand what each input is.** The video also describes each variable at this [link](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1779).
+  - We will then iterate through each hit that we found from our raycast, and if it has the tag of "Enemy", will print the statement "Tons of damage".
+  - We will then wait `hitboxtiming` seconds, and then set `isAttacking` back to false.
+  
+
+{: .note}
+> Tags are labels we can assign to every game object, and is useful in selecting specific types of objects.
 
 
+Go back into Unity, and set the Player object to have the Player tag. This will be right under the Object name. 
+
+Now, add an `if` statement at the very beginning of `Update()` to check if `isAttacking` is true. If so, then just return. 
+
+Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `Hitboxtiming` and `Endanimationtiming` as 0.1, and `Movespeed` remaining the same at 2.
+
+If you press play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
+
+Now, add the animation controller 👍
  
 <!-- 
 
