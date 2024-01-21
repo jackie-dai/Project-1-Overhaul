@@ -1,9 +1,11 @@
 ## Section 6 - Pickups
 
 ### Setting up the chest and health-pack
-Create a new game object and name it `Chest`. Then, follow these steps: 
+Right click in the hierarchy to create a new sprite game object `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
 
-1. Inside the`Sprite Renderer` component, look under "Additional Settings", set the `Sorting layer` to `Enemy`.
+1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *Chest.png* into the `Sprite Renderer` component's `Sprite` box.
+
+2. Inside the`Sprite Renderer` component, look under "Additional Settings", set the `Sorting layer` to `Enemy`.
 
 ![](./images/fig6.1.png) Fig 6.1
 
