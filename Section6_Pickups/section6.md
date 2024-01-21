@@ -17,29 +17,26 @@ Now, create another new game object and name it `HealthPack`. Repeat the followi
 
 ### Healthpack Script
 
-Navigate to the Scripts folder `Assets > Scripts` and open `HealthPack.cs`.
+Navigate to the Scripts folder `Assets > Scripts` and add the `HealthPack.cs` script to your *HealthPack* game object. Double click the script to edit it. 
 
 In `HealthPack.cs`, start by creating a new region `HealthPack_variables` and add a int variable named `healthAmount`.
 
-**Task: In `HealthPack.cs` fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with (remember to attach the script to the healthpack game object before testing).**
+When a player walks over a health potion, it should boost their health points and, lastly, disappear; signaling to the player that the potion has been used. 
 
-// add destroy game object
+**Task: In `HealthPack.cs` fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with .**
 
 Solution (translate hex to ASCII):
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 50 6C 77 31 4F 30 55 75 5F 7A 51 3F 73 69 3D 66 74 31 61 6D 35 71 64 4F 6C 6E 77 58 37 70 52 26 74 3D 32 37 39
 ```
 
-Add your finished script as a component to your HealthPack game object.
 Make your `HealthPack` game object into a prefab.
 
 ### Chest Script
 
-Navigate to the Scripts folder again and open `Chest.cs`
+Navigate to the Scripts folder again and add the `Chest.cs` script to your *Chest* game object. Double click the script to edit it.
 
 Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthpack`. We will need this variable to spawn healthpacks when chests are opened. Back in the unity editor, with `Chest` selected, drag and drop a reference to the `HealthPack` prefab into this variable via the unity inspector.
-
-When a player walks over a health potion, it should boost their health points, and lastly disappear; giving the illusion of the potion being used. 
 
 **Task: fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a healthpack (Again, make sure to attach the script before testing)** 
 
