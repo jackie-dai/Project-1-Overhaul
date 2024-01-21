@@ -39,6 +39,8 @@ Navigate to the Scripts folder again and open `Chest.cs`
 
 Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthpack`. We will need this variable to spawn healthpacks when chests are opened. Back in the unity editor, with `Chest` selected, drag and drop a reference to the `HealthPack` prefab into this variable via the unity inspector.
 
+When a player walks over a health potion, it should boost their health points, and lastly disappear; giving the illusion of the potion being used. 
+
 **Task: fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a healthpack (Again, make sure to attach the script before testing)** 
 
 Solution (translate hex to ASCII):
