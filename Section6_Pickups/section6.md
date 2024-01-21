@@ -45,7 +45,6 @@ Solution (translate hex to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 50 6C 77 31 4F 30 55 75 5F 7A 51 3F 73 69 3D 51 6B 57 44 64 42 45 6B 6D 47 41 52 53 64 65 62 26 74 3D 34 35 35
 ```
 
-Add your finished script as a component to your `Chest` game object. Drag and drop a reference to your *HealthPack* prefab into the `Chest` script component.
 Make your `Chest` into a prefab. 
 
 Now, scatter some chests into your map by dragging and dropping the `Chest` prefabs into your scene.
