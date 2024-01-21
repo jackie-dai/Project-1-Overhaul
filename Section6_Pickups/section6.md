@@ -36,16 +36,18 @@ Make your `HealthPack` game object into a prefab.
 
 Navigate to the Scripts folder again and add the `Chest.cs` script to your *Chest* game object. Double click the script to edit it.
 
-Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthpack`. We will need this variable to spawn healthpacks when chests are opened. Back in the unity editor, with `Chest` selected, drag and drop a reference to the `HealthPack` prefab into this variable via the unity inspector.
+Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthpack`. We will need this variable to spawn healthpacks when chests are opened. 
 
-**Task: fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a healthpack (Again, make sure to attach the script before testing)** 
+When a player interacts with a chest, the chest should disappear, leaving behind a health potion for the player to pick up. 
+
+**Task: fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a healthpack** 
 
 Solution (translate hex to ASCII):
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 50 6C 77 31 4F 30 55 75 5F 7A 51 3F 73 69 3D 51 6B 57 44 64 42 45 6B 6D 47 41 52 53 64 65 62 26 74 3D 34 35 35
 ```
 
-Make your `Chest` into a prefab. 
+Back in the unity editor, with `Chest` selected, drag and drop a reference to the `HealthPack` prefab into this variable via the unity inspector. Then, make your `Chest` into a prefab. 
 
 Now, scatter some chests into your map by dragging and dropping the `Chest` prefabs into your scene.
 
