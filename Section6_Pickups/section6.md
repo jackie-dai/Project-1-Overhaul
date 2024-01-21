@@ -13,7 +13,7 @@ Right click in the hierarchy to create a new sprite game object `2D Object > Spr
 
 ![](./images/fig6.2.png) Fig 6.2
 
-Now, create another new game object and name it `HealthPack`. Repeat the following steps above for `HealthPack`.
+Now, create another sprite game object and name it `HealthPack`. Repeat the following steps above for `HealthPack`.
 
 ### Healthpack Script
 
