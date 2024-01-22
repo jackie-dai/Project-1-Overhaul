@@ -153,7 +153,7 @@ Initialize the `attackTimer` variable in `Awake()` to 0, as that will indicate t
 
 Then, in Update, add a conditional statement to check if `attackTimer < 0`. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function, which will now also add `attackTimer = attackspeed;` to set the cooldown. If you need help, the timestamp is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1340).
 
-Now, if you go to the Player object, there be an input field for Attackspeed, so set it to `3`, save, and play the game to see if the cooldown is working. 
+Now, if you go to the Player object, there will be an input field for Attackspeed, so set it to `3`, save, and play the game to see if the cooldown is working. 
 
 We now want it to only attack in the direction we are facing, which will use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`
 
