@@ -1,10 +1,10 @@
-## Section 2 - Creating the enemies
+## Section 2 - Creating the Enemies
 
 What fun is a game if there are no enemies to fight?
 
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight and if the player is within the enemy's line of sight, it will move towards the player and explode upon contact; dealing damage to the player. In return, the player will also be able to deal damage back to the enemy. 
 
-### Enemy setup
+### Enemy Setup
 Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D. 
 Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
 
@@ -21,20 +21,20 @@ Attach a Circle Collider 2D to your newly created *LineOfSight* game object and 
 
 ![](./images/fig2.2.png) Fig 2.2
 
-### Setting up the Enemy script
+### Setting Up the Enemy Script
 
 Now, we need to implement the logic to make the enemy move towards and attack the player. 
 Make a new script in the scripts folder and name it `Enemy`. Inside the `Enemy` script, set up 3 regions:
 
-1. Movement_variables
-2. Unity_functions
-3. Movement_functions
+1. `Movement_variables`
+2. `Unity_functions`
+3. `Movement_functions`
 
 
 ![](./images/fig2.3.png) Fig 2.3
 
 
-### Enemy movement
+### Enemy Movement
 
 Lets move the enemy towards the player. First, we need three variables:
 
@@ -58,7 +58,7 @@ Solution (translate hex to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
 ```
 
-### Dealing damage to the player 
+### Dealing Damage to the Player 
 
 Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
 
@@ -68,11 +68,11 @@ In the `Enemy` script, create a new `Attack_variables` region and add three vari
 
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
-**Task: implement Explode()**
+**Task: Implement Explode()**
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
 The raycast returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.
-Also make sure to set your attack variables in the unity inspector before testing your code! We provide a explosion prefab located in *Assets > Prefabs* that you can drag into *ExplosionObj*.
+Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in *Assets > Prefabs* that you can drag into *ExplosionObj*.
 
 Solution (translate hex below to ASCII):
 
@@ -80,7 +80,7 @@ Solution (translate hex below to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 30 37 55 51 48 35 7A 41 52 65 6A 6E 69 6B 30 58 26 74 3D 31 32 30 37
 ```
 
-You've implemented the Explode() function, but nothing actually happens yet. That's because it hasn't been called yet. Call this function to make the enemy explode upon contact with the player. 
+You've implemented the `Explode()` function, but nothing actually happens yet. That's because it hasn't been called yet. Call this function to make the enemy explode upon contact with the player. 
 
 **Task: In *Enemy.cs*, Invoke your Explode() function in OnCollisionEnter2D() if the enemy collides with the player.**
 
@@ -90,11 +90,11 @@ Solution (translate hex below to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 63 77 74 5A 78 74 78 76 30 37 4C 68 52 51 39 50 26 74 3D 31 35 31 32
 ```
 
-### Enemy animation 
+### Enemy Animation 
 
 Enemies look boring as a static sprite. Lets give it some character by animating their walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
 
-Add an `animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
+Add an `Animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
 
 https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
