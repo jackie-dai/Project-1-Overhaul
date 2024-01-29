@@ -1,10 +1,15 @@
 ## Section 7 - Interacting with pickups
 
-In the previous section, we just implemnented the Interact() function for *Chest*: destroying the *Chest* game object and leaving in its place a *Health Potion*. Now, we just have to repeatedly check if the player presses the "E" key. 
+In the previous section, we implemented the Interact() function for *Chest* that destroys the *Chest* game object and leaves in its place a *Health Potion*. 
+As of right now, the function is not being used. Lets make use of it in the following section.
 
-In *PlayerController* write a if statement inside `Update()` to check when the player presses the "E" key. Then, call the *PlayerController*'s `Interact()` function that we shall implement next.
+The `Interact()` function should be called whenever the player presses "E" on a chest.  
 
-*PlayerController*'s Interact() function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instance's `Interact()` function to drop a *Health Potion*.
+//note: change function name Interact() -> Open()
+
+First, open up *PlayerController.cs* and add a conditional if statement inside the `Update()` function to repeatedly check if the player presses the "E" key. If the "E" key is pressed, call the *PlayerController*'s `Interact()` function; we  shall implement the functionality of this function in the next step.
+
+Still inside *PlayerController* script, navigate down to the Interact() function. This function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instance's `Interact()` function to drop a *Health Potion*.
 
 **Task: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object` if so, call that `Chest`'s `Interact()` function.**
 
