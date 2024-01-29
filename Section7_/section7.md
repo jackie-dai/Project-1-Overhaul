@@ -1,6 +1,6 @@
 ## Section 7 - Interacting with pickups
 
-In the previous section, we just implemnented the Interact() function for *Chest*, which destroys the *Chest* game object and leaves in its place a *Health Potion*. Now, we just have to keep checking if the player pressed the "E" key. 
+In the previous section, we just implemnented the Interact() function for *Chest*: destroying the *Chest* game object and leaving in its place a *Health Potion*. Now, we just have to keep checking if the player pressed the "E" key. 
 
 In *PlayerController* write a if statement inside `Update()` to check when the player presses the "E" key. Then, call the *PlayerController*'s `Interact()` function that we shall implement next.
 
