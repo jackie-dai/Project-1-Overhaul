@@ -18,26 +18,26 @@ ___
 2. Be able to move the player object in any direction.
 
 
-Before creating the player, disable all other components in the scene, specifically `Grassy Map`, `AudioManager`, and `CM vcam1`. Look into the inspector tab, and click the checkmark in the top left corner to remove it from view.
+Before creating the player, disable all other components in the scene, specifically *Grassy Map*, *AudioManager*, and *CM vcam1*. Look into the inspector tab, and click the checkmark in the top left corner to remove it from view.
 
-![disable view](images/sec1_1.png)
-
-
-Create a 2D sprite by right clicking in the hierarchy and going to `2D Object -> Sprite` and reset it's position by looking in the `Transform` component and changing the positions to 0. Then change the name of sprite from `New Sprite` to `Player`. 
-
-{: .note}
-> Keep in mind that Unity is strict on naming conventions, and this guide will assume you name it exactly as the given. `Player` is not the same as `player`.
-> 
+![disable view](images/fig1.1.png)
 
 
-In the `Sprite Renderer` component, change the Sprite from None to `idle_east_1`.
+Create a 2D sprite by right clicking in the hierarchy and going to `2D Object -> Sprite` and reset it's position by looking in the `Transform` component and changing the positions to 0. Then change the name of sprite from New Sprite to "Player". 
 
-Add a new component titled `Rigidbody 2D` and a `Capsule Collider 2D`. Make sure that the `Body Type` for the Rigidbody component is `Dynamic` and `Gravity Scale` is `0`. Check the `Freeze Rotation` box as well.
+{: .warning}
+> Keep in mind that Unity is strict on naming conventions, and this guide will assume you name it exactly as the given. "Player" is not the same as "player".
+>
+
+
+In the *Sprite Renderer* component, change the Sprite from None to `idle_east_1`.
+
+Add a new component titled *Rigidbody 2D* and a *Capsule Collider 2D*. Make sure that the `Body Type` for the Rigidbody component is `Dynamic` and `Gravity Scale` is `0`. Check the `Freeze Rotation` box as well.
 
 In the `Capsule Collider`, we want to set the hitbox of the sprite to be the same size as the sprite. In order to add some depth, we will set the hitbox as the feet of the sprite. You may use the numbers in the image below, and to check if your `Rigidbody` is also correct.
-![Alt text](images/sec1_2.png)
+![Alt text](images/fig1.2.png)
 
-Now go into the `Scripts` folder, and create a new script by right clicking inside the folder, and `Create -> C# Script`. Name it `PlayerController`, and then open the file. Delete the two starter functions (the Start and Update functions) so then we can start from scratch.
+Now go into the `Scripts` folder, and create a new script by right clicking inside the folder, and `Create -> C# Script`. Name it *PlayerController*, and then open the file. Delete the two starter functions (the Start and Update functions) so then we can start from scratch.
 
 In order to keep our code clean, we will use `#region` boundaries to sort and organize our variables. You can see it in the given code here.
 
@@ -72,45 +72,51 @@ private void Update()
 - `Awake()` is called ONCE when the object is created, and never again.
 - `Update()` is called EVERY frame. This means that **we do not want any intensive or heavy code in Update** as that would be costly, and could lag, or even crash your game. 
 
-Here, we will leave you with a small coding exercise. If you can't do it off the top of your head, no worries! You can follow the project video linked [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=365)
- with the timestamp. 
+Here, we will leave you with a small coding exercise. If you can't do it off the top of your head, no worries! You can follow the project video linked with the timestamp.
+
+{: .important}
+> You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all youtube links.
+
+```
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 36 35
+```
 
 
 - In `Awake()`, set a variable `PlayerRB` to the `Rigidbody2D` component using the `GetComponent` function.
 - In `Update()`, you will need to do two things.
   1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
-     -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement.
-     -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement, and set them to `x_input` and `y_input` respectfully.
+     -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
+     -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectfully. 
   2. Create the function `private void Move(){}` function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
      -  You will need 5 cases to determine what the player should do.
      -  Set `PlayerRB.velocity` to `Vector.up/down/left/right` based on which case you are on.
   
-To check if we have coded this correctly, drag the `PlayerController` script into the component section of our Player, and put in some value for Movespeed.
+To check if we have coded this correctly, drag the *PlayerController* script into the component section of our Player, and put in some value for Movespeed.
 
 {: .note}
-> If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the CinemachineBrain component, and set the Z position to be -3.
+> If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the *CinemachineBrain* component, and set the Z position to be -3.
 
 Now, click the play button once, and, after it loads, see if your player is visible, and moves using the WASD keys. 
 
 {: .highlight}
-You may notice that some keys override the keys of others - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
 
 ## Player Attacks
 
 #### Summary:
-1. Be able to attack when pressing the 'J' key in all four directions
+1. Be able to attack when pressing the "J" key in all four directions
 2. Cast the hitbox in the right direction
 3. Add animations
 
-Copy and paste this code block into your `PlayerController` script, which will define some new variables for you.
+Copy and paste this code block into your *PlayerController* script, which will define some new variables for you.
 
 ```
 #region Attack_variables
 public float Damage;
-float attackspeed = 1;
+float attackSpeed = 1;
 float attackTimer;
-public float hitboxtiming;
-public float endanimationtiming;
+public float hitBoxTiming;
+public float endAnimationTiming;
 bool isAttacking;
 Vector2 currDirection;
 #endregion
@@ -131,35 +137,43 @@ IEnumerator AttackRoutine()
 
 
 - `Damage` is how much damage you do each hit.
-- `attackspeed` is how long you need to wait before you have to attack again. 
+- `attackSpeed` is how long you need to wait before you have to attack again. 
 - `attackTimer` will work with `attackSpeed` by timing when the player last hit. On attacking, it will reset, and count down once more.
-- `hitboxtiming` and `endanimationtiming` will allow us to have a delay from when the animation starts, to when we actually hit the enemy. This will make the animation feel more convincing by having it hit when the sword is being swung, rather than when it is winding up.
+- `hitBoxTiming` and `endAnimationTiming` will allow us to have a delay from when the animation starts, to when we actually hit the enemy. This will make the animation feel more convincing by having it hit when the sword is being swung, rather than when it is winding up.
 - `isAttacking` will let us know if the user has inputted an attack, which will then pause our movement.
 - `currDirection` will make sure that if we attack right, we attack right, rather than to a different direction.
 - `Attack()` is the function that will be called when the player attacks.
 - `AttackRoutine()` will handle animations and hitboxes for the attack mechanisms. 
 
 {: .note}
-> You may notice that it is an IEnumerator rather than a public or private function. This is an example of a **coroutine** which you will learn about in a later lab. If you have taken 61A, it is similar to yield functions and generators.
+> You may notice that the data type of the `AttackRoutine()` function is an IEnumerator rather than a public or private function. This is an example of a **coroutine** which you will learn about in a later lab. If you have taken 61A, it is similar to yield functions and generators.
 
-In `Update()`, using the key `j` as your attack key, call the private `Attack()` function when the j key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1149)
+In `Update()`, using the key "J" as your attack key, call the private `Attack()` function when the "J" key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is below.
+
+```
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 31 34 39
+```
 
 
 If you save, and press play, you should see in the bottom left a print statement saying `attacking now`. This is your console, and will be very helpful in debugging, and testing code in labs, and projects. It will also display any warnings, and errors that you may have.
 
-We will now make it such that you cannot spam the ability as fast as you can using the `attackspeed` and `attackTimer` variables.
+We will now make it such that you cannot spam the ability as fast as you can using the `attackSpeed` and `attackTimer` variables.
 
 Initialize the `attackTimer` variable in `Awake()` to 0, as that will indicate that we can attack again. 
 
-Then, in Update, add a conditional statement to check if `attackTimer < 0`. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function, which will now also add `attackTimer = attackspeed;` to set the cooldown. If you need help, the timestamp is [here](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1340).
+Then, in Update, add a conditional statement to check if `attackTimer < 0`. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function, which will now also add `attackTimer = attackSpeed;` to set the cooldown. If you need help, the timestamp is below.
 
-Now, if you go to the Player object, there be an input field for Attackspeed, so set it to `3`, save, and play the game to see if the cooldown is working. 
+```
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 33 34 30
+```
+
+Now, if you go to the Player object, there be an input field for AttackSpeed, so set it to 3, save, and play the game to see if the cooldown is working. 
 
 We now want it to only attack in the direction we are facing, which will use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`
 
 You can now check to make sure that it works by adding another Debug statement in `Attack()` to check the current direction with `Debug.Log(currDirection);` which will print out two values to display the current direction. 
 
-Finally, in the inspector, change the Attackspeed to 0.5, since we don't only want to be able to attack every 3 seconds.
+Finally, in the inspector, change the AttackSpeed to 0.5, since we don't only want to be able to attack every 3 seconds.
 
 Now, we will start on being able to cast the hitbox in the right direction, which will mainly be done in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`.
 
@@ -172,7 +186,7 @@ IEnumerator AttackRoutine()
 {
     isAttacking = true;
     PlayerRB.velocity = Vector2.zero;
-    yield return new WaitForSeconds(hitboxtiming);
+    yield return new WaitForSeconds(hitBoxTiming);
     Debug.Log("Casting hitbox now");
     RaycastHit2D[] hits = Physics2D.BoxCastAll(PlayerRB.position + currDirection, Vector2.one, 0f, Vector2.zero);
 
@@ -184,17 +198,20 @@ IEnumerator AttackRoutine()
         }
     }
 
-    yield return new WaitForSeconds(hitboxtiming);
+    yield return new WaitForSeconds(hitBoxTiming);
     isAttacking = false;
 
 }
 ```
   - We set `isAttacking` to true, and set the player's velocity to 0, as, a design choice, the player will not be able to move when they attack.
-  - `yield return new WaitForSeconds(hitboxtiming);` will basically pause the running of the function for `hitboxtiming` number of seconds before running the next line.
-  - `hits` is an array of all the objects that are colliding with a box that is in front of the player. To learn more about `BoxCastAll`, you can check out t he function description [here](https://docs.unity3d.com/ScriptReference/Physics2D.BoxCastAll.html). **We highly suggest you read through the documentation and understand what each input is.** The video also describes each variable at this [link](https://youtu.be/dsMkDnuCd-A?list=PLkTqf5DBzPsAe-pR5bDUdwHiCNgHcyBIh&t=1779).
+  - `yield return new WaitForSeconds(hitBoxTiming);` will basically pause the running of the function for `hitBoxTiming` number of seconds before running the next line.
+  - `hits` is an array of all the objects that are colliding with a box that is in front of the player. To learn more about `BoxCastAll`, you can check out the function description [here](https://docs.unity3d.com/ScriptReference/Physics2D.BoxCastAll.html). **We highly suggest you read through the documentation and understand what each input is.** The video also describes each variable at the timestamp given below.
   - We will then iterate through each hit that we found from our raycast, and if it has the tag of "Enemy", will print the statement "Tons of damage".
-  - We will then wait `hitboxtiming` seconds, and then set `isAttacking` back to false.
+  - We will then wait `hitBoxTiming` seconds, and then set `isAttacking` back to false.
   
+```
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 37 37 39
+```
 
 {: .note}
 > Tags are labels we can assign to every game object, and is useful in selecting specific types of objects.
@@ -204,7 +221,7 @@ Go back into Unity, and set the Player object to have the Player tag. This will 
 
 Now, add an `if` statement at the very beginning of `Update()` to check if `isAttacking` is true. If so, then just return. 
 
-Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `Hitboxtiming` and `Endanimationtiming` as 0.1, and `Movespeed` remaining the same at 2.
+Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `hitBoxTiming` and `endAnimationTiming` as 0.1, and `Movespeed` remaining the same at 2.
 
 If you press play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
