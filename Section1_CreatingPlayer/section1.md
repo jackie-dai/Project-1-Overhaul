@@ -167,7 +167,7 @@ Then, in Update, add a conditional statement to check if `attackTimer < 0`. If n
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 33 34 30
 ```
 
-Now, if you go to the Player object, there be an input field for AttackSpeed, so set it to 3, save, and play the game to see if the cooldown is working. 
+Now, if you go to the Player object, there will be an input field for AttackSpeed, so set it to 3, save, and play the game to see if the cooldown is working. 
 
 We now want it to only attack in the direction we are facing, which will use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`
 
