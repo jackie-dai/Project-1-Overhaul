@@ -1,7 +1,5 @@
 ## Section 8: Menu Screens
 
-___
-
 Now that the core gameplay has been implemented, we can now round off our game with menu screens that allow the player to navigate from opening the game to playing it and vice versa. Menu screens are a quick way to add polish to your game and improve the user experience, as well as enforcing the style or theme that your game is going for.
 
 {: .note}
@@ -14,20 +12,22 @@ Create a Text object under the new canvas and name it “TitleText”. Increase 
 
 Create an Image under MainMenuCanvas and drag it above TitleText in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the Anchor Preset box on the top left of the RecTransform component and click on the bottom right box with 4 blue arrows extending outwards. Change the Left, Right, Top, and Bottom transforms to 0 to stretch the image toward the edges of the screen.
 
-Fig 1
+![disable view](images/fig8.1.png)
 
 Change the Color of the image to your choice of background color. Add a Button object to the MainMenuCanvas and lower the button either in the scene or by changing the Y position to -75 in the Inspector. Access the Text object, the child of Button, and change the text to “Start Game.”
 
-Win and Lose Screens
+## Win and Lose Screens
 
 Task: Create two more scenes, “WinScene” and “LoseScene”, that will show up when the win and lose conditions are met respectively.
 
 Note: Both scenes, at minimum, will have the same components as the “MainMenu” scene, so you can use the “Duplicate Scene” function to save some time. Make sure to change the components and rename the scene so that they are distinct from the main menu.
 
-Solution:
-68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 41 33 78 35 69 50 6A 36 6A 6C 63 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 34 39
 
-Scene Management
+``` 
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 41 33 78 35 69 50 6A 36 6A 6C 63 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 34 39 
+```
+
+## Scene Management
 
 To hold all of the scene management code, we will be using a GameManager script. The GameManager script is typically where, as the name suggests, most of the game management code is stored. Since most of the code that maintains the gameplay has been delegated to other scripts, this GameManager script will control scene management.
 
@@ -68,13 +68,15 @@ Task: Using SceneManager.LoadScene(string sceneName), fill in these four functio
 
 Note: Each function should load to a different scene. Scene names are also CASE SENSITIVE, so double-check your spelling and cases first if you run into issues.
 
-Solution: 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 78 44 64 31 50 46 44 7A 4E 57 55 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 32 30 37
+```
+ 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 78 44 64 31 50 46 44 7A 4E 57 55 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 32 30 37 
+```
 
 You have successfully implemented the necessary functions within GameManager.cs to navigate through the UI! Attach GameManager.cs to the GameManager object and turn the object into a prefab.
 
 We will now hook up the functions to the buttons in each scene. Access the StartButton object under MainMenuCanvas and scroll to the Button component, where you’ll find an OnClick() box. Click the plus sign at the bottom right so that the box looks like the figure below. If it already looks like the figure, you do not need to add a second function.
 
-Fig 2
+![disable view](images/fig8.2.png)
 
 Drag the GameManager prefab into the empty object slot, and select GameManager > StartGame() on the dropdown menu. Now when the button is clicked, the StartGame() function will execute.
 
@@ -104,7 +106,9 @@ Afterwards, it accesses WinGame() from GameManager.cs, thereby moving the scene 
 
 - Using this method of ending the game, implement a lose condition in Health.cs. 
 
-Solution:
-68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 41 69 68 54 49 45 32 67 2D 6C 55 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 35 38
+
+``` 
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 41 69 68 54 49 45 32 67 2D 6C 55 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 35 38 
+```
 
 Give yourself a pat on the back! You have a working game in your hands. Export the game through File > Build Settings... and press Build after checking that all scenes have been added to the build. A zip file containing your game will be created, and you can upload this file to the submission form for us to grade.
