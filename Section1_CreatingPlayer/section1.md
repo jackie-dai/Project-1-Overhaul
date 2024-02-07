@@ -1,4 +1,4 @@
-## Section 1 - Creating the player
+## Section 1 - Creating the Player
 
 
 ![Alt Text](https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif)
