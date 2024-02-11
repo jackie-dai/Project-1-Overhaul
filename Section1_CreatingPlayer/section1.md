@@ -81,7 +81,6 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 36 35
 ```
 
-
 - In `Awake()`, set a variable `PlayerRB` to the `Rigidbody2D` component using the `GetComponent` function.
 - In `Update()`, you will need to do two things.
   1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
