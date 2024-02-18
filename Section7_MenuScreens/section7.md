@@ -1,4 +1,4 @@
-## Section 8 - Menu Screens
+## Section 7 - Menu Screens
 
 Now that the core gameplay has been implemented, we can now round off our game with menu screens that allow the player to navigate from opening the game to playing it and vice versa. Menu screens are a quick way to add polish to your game and improve the user experience, as well as enforcing the style or theme that your game is going for.
 
