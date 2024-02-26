@@ -5,10 +5,14 @@ In the arena of challenges, foes emerge as catalysts for resilience and architec
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight of radius r and if the player is within this radius, it will move towards the player and explode upon contact; dealing damage to the player. The player will also be able to deal damage back to the enemy
 
 ## Enemy Setup
-Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D. 
-Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
+Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D.
 
 ![](./images/fig2.1.png) Fig 2.1
+
+Inside the RigidBody2D component:
+
+- Set the gravity to zero (fig 2.1) 
+- freezing z rotation (fig 2.1)
 
 Next, set the Enemy game object's tag to Enemy.
 Now, we have a basic enemy game object. 
