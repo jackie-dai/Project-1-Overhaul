@@ -55,11 +55,11 @@ Now in the awake() function, set the rb variable to the RigidBody 2D component a
 
 ![](./images/fig2.4.png) Fig 2.4
 
-Using the above three variables, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** 
+Using the above three variables, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the Enemy script, in addition to the OnTriggerEnter2D script in the LineOfSight script.
 
 Functions and script to modify:
 
-`Enemy.cs` -> `Move()` and `Update()`
+*Enemy.cs*  script -> `Move()` and `Update()`
 
 *LineOfSight* script -> `OnTriggerEnter2D()` function
 
