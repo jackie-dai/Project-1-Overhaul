@@ -4,6 +4,12 @@ In the arena of challenges, foes emerge as catalysts for resilience and architec
 
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight of radius r and if the player is within this radius, it will move towards the player and explode upon contact; dealing damage to the player. The player will also be able to deal damage back to the enemy
 
+Summary:
+
+1. Create enemy that tracks and chases the player
+2. When the enemy makes contact with the player, it explodes and deals damage to the player
+3. Implement the ghost walking animation for the enemy
+
 ## Enemy Setup
 Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D.
 
