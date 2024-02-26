@@ -17,6 +17,8 @@ Inside the RigidBody2D component:
 Next, set the Enemy game object's tag to Enemy.
 Now, we have a basic enemy game object. 
 
+## Setting Up Enemy Line of Sight
+
 An enemy should attack the player if the player is within a certain radius. 
 
 To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object `LineOfSight`. 
