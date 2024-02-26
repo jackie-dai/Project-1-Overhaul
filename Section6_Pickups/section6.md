@@ -4,7 +4,7 @@ In this section, you will implement a chest object and a health potion object, b
 
 #### Summary:
 
-1. Create a healthpack object that gives the player health
+1. Create a healthpack object that heals the player's health
 2. Create a chest that drops healthpacks when the player opens it
 
 ## Setting Up  Chest and HealthPack
