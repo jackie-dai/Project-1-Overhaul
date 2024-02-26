@@ -5,7 +5,7 @@
 
 
 ___
-## In this section, we will be creating the player and their basic actions. This will include a couple things:
+ In this section, we will be creating the player and their basic actions. This will include a couple things:
 
 ### 1. move in four directions
 ### 2. attack in four directions
@@ -222,9 +222,9 @@ Now, add an `if` statement at the very beginning of `Update()` to check if `isAt
 
 Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `hitBoxTiming` and `endAnimationTiming` as 0.1, and `Movespeed` remaining the same at 2.
 
-If you press play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
+If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
-Now, add the animation controller 👍
+Now, add the animation controller. 👍
  
 <!-- 
 

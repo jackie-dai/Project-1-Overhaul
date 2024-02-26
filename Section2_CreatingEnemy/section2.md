@@ -4,7 +4,7 @@ What fun is a game if there are no enemies to fight?
 
 In this section, we will be creating a enemy for the player to fight. The enemy will have a line of sight and if the player is within the enemy's line of sight, it will move towards the player and explode upon contact; dealing damage to the player. In return, the player will also be able to deal damage back to the enemy. 
 
-### Enemy Setup
+## Enemy Setup
 Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D. 
 Modify the Rigidbody 2D by setting gravity to zero and freezing z rotation (fig 1).
 
@@ -34,11 +34,11 @@ Make a new script in the scripts folder and name it `Enemy`. Inside the `Enemy` 
 ![](./images/fig2.3.png) Fig 2.3
 
 
-### Enemy Movement
+## Enemy Movement
 
-Lets move the enemy towards the player. First, we need three variables:
+Let's move the enemy towards the player. First, we need three variables:
 
-Inisde the Movement_variables region, create a **float variable named `moveSpeed`*.** This variable will let us control the movement speed of the enemy. Make it public so that we can adjust the enemy's speed in the unity inspector. 
+Inisde the Movement_variables region, create a **float** variable named `moveSpeed`. This variable will let us control the movement speed of the enemy. Make it public so that we can adjust the enemy's speed in the unity inspector. 
 
 Below Movement_variables, create a new region named *Physics_componenets* and **add a RigidBody 2D variable named `EnemyRB`** to it. This way we can manipulate the enemy's rigidbody for movement.
 
@@ -58,7 +58,7 @@ Solution (translate hex to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
 ```
 
-### Dealing Damage to the Player 
+## Dealing Damage to the Player 
 
 Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
 
@@ -90,7 +90,7 @@ Solution (translate hex below to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 63 77 74 5A 78 74 78 76 30 37 4C 68 52 51 39 50 26 74 3D 31 35 31 32
 ```
 
-### Enemy Animation 
+## Enemy Animation 
 
 Enemies look boring as a static sprite. Lets give it some character by animating their walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
 

@@ -1,6 +1,8 @@
 ## Section 6 - Pickups
 
-### Setting Up the Chest and HealthPack
+In this section, you will implement a chest object and a health potion object, before programming the ability to open these chests and receive potions.
+
+## Setting Up  Chest and HealthPack
 Right click in the hierarchy to create a new sprite GameObject `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
 
 1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *Chest.png* into the `Sprite Renderer` component's `Sprite` box.
@@ -23,7 +25,7 @@ In *HealthPack.cs*, start by creating a new region `HealthPack_variables` and ad
 
 When a player walks over a health potion, it should boost their health points and disappear; signaling to the player that the potion has been used. 
 
-**Task: In *HealthPack.cs* fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with.**
+**Task: In *HealthPack.cs* fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with. Add the potion sound to your script as well.**
 
 Solution (translate hex to ASCII):
 ```
@@ -32,7 +34,7 @@ Solution (translate hex to ASCII):
 
 Make your `HealthPack` game object into a prefab.
 
-### Chest Script
+## Chest Script
 
 Navigate to the Scripts folder again and add the *Chest.cs* script to your *Chest* game object. Double click the script to edit it.
 
@@ -55,7 +57,7 @@ Now, scatter some chests into your map by dragging and dropping the `Chest` pref
 
 Here is a example of what your scene should look like now.
 
-###  Interacting with pickups
+##  Interacting with Pickups
 
 We just implemented the Interact() function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
 As of right now, the function is not being used. Lets make use of it now.
