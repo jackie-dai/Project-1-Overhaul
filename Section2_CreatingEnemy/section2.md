@@ -42,19 +42,33 @@ Make a new script in the scripts folder and name it `Enemy`. Inside the `Enemy` 
 
 ## Enemy Movement
 
-Let's move the enemy towards the player. First, we need three variables:
+Let's move the enemy towards the player. To do so, we will be working with the following variables.
 
-Inisde the Movement_variables region, create a **float** variable named `moveSpeed`. This variable will let us control the movement speed of the enemy. Make it public so that we can adjust the enemy's speed in the unity inspector. 
+```
+#region Movement_variables
+public float moveSpeed
+#endregion
 
-Below Movement_variables, create a new region named *Physics_componenets* and **add a RigidBody 2D variable named `EnemyRB`** to it. This way we can manipulate the enemy's rigidbody for movement.
+#region Physics_components
+private Rigidbody2D rb;
+#endregion
 
-The enemy will be moving towards the enemy, so it needs to know the location of the player game object. **Under a new Targeting_variables region, create a Transform variable named `player``.** Make this public or protected (protected means scripts of children game objects have access).
+#region Targeting_variables
+public Transform player
+#endregion
+```
 
-In the awake() function, set the rb variable to the RigidBody 2D component attached to the enemy game object by using *GetComponent<>()* (fig 2.4).
+- `moveSpeed` will let us control the movement speed of the enemy. It is public so that we can adjust the enemy's speed in the unity inspector. 
+
+- `EnemyRB`** will hold a reference to the enemy's Rigidbody2D. This way, we can manipulate the rigidbody's velocity property to create movement.
+
+- `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This is public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
+
+Now in the awake() function, set the rb variable to the RigidBody 2D component attached to the enemy game object by using *GetComponent<>()* (fig 2.4).
 
 ![](./images/fig2.4.png) Fig 2.4
 
-Using the three variables we just created, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the *Enemy* script, in addition to the OnTriggerEnter2D script in the *LineOfSight* script. 
+Using the above three variabled, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the *Enemy* script, in addition to the OnTriggerEnter2D script in the *LineOfSight* script. 
 
 **Task: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
