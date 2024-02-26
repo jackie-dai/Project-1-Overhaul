@@ -11,8 +11,8 @@ Like you did with the player, make a new game object and name it `Enemy`, attach
 
 Inside the RigidBody2D component:
 
-- Set the gravity to zero (fig 2.1) 
-- freezing z rotation (fig 2.1)
+- Set the gravity scale to zero (fig 2.1) 
+- Freezing z rotation by checking the z box in rotation (fig 2.1)
 
 Next, set the Enemy game object's tag to Enemy.
 Now, we have a basic enemy game object. 
