@@ -27,22 +27,9 @@ Attach a Circle Collider 2D to your newly created *LineOfSight* game object and 
 
 ![](./images/fig2.2.png) Fig 2.2
 
-### Setting Up the Enemy Script
+### The Enemy Script
 
-Now, we need to implement the logic to make the enemy move towards and attack the player. 
-Make a new script in the scripts folder and name it `Enemy`. Inside the `Enemy` script, set up 3 regions:
-
-1. `Movement_variables`
-2. `Unity_functions`
-3. `Movement_functions`
-
-
-![](./images/fig2.3.png) Fig 2.3
-
-
-## Enemy Movement
-
-Let's move the enemy towards the player. To do so, we will be working with the following variables.
+Let's make the enemy chase the player. To do so, we will be working with the following variables:  
 
 ```
 #region Movement_variables
@@ -68,7 +55,13 @@ Now in the awake() function, set the rb variable to the RigidBody 2D component a
 
 ![](./images/fig2.4.png) Fig 2.4
 
-Using the above three variables, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the *Enemy* script, in addition to the OnTriggerEnter2D script in the *LineOfSight* script. 
+Using the above three variables, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** 
+
+Functions and script to modify:
+
+`Enemy.cs` -> `Move()` and `Update()`
+
+*LineOfSight* script -> `OnTriggerEnter2D()` function
 
 **Task: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
