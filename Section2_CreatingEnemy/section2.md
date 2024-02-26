@@ -55,13 +55,13 @@ Now in the awake() function, set the rb variable to the RigidBody 2D component a
 
 ![](./images/fig2.4.png) Fig 2.4
 
-Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the Move() and Update() functions in the Enemy script, in addition to the OnTriggerEnter2D script in the LineOfSight script.
+Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
 
-Functions and script to modify:
+Functions to modify:
 
 *Enemy.cs*  script -> `Move()` and `Update()`
 
-*LineOfSight* script -> `OnTriggerEnter2D()` function
+*LineOfSight* script -> `OnTriggerEnter2D()`
 
 **Task: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
@@ -75,11 +75,25 @@ Solution (translate hex to ASCII):
 
 Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
 
-In the `Enemy` script, create a new `Attack_variables` region and add three variables to it: `explosionDamage`, `explosionRadius`, and `explosionObj`. The first two are of type float and *explosionObj* is of type GameObject. All three should be public, so we can adjust and reference as needed in the unity inspector. 
+```
+#region Attack_variables
+public float explosionDamage;
+public float explosionRadius;
+public GameObject explosionObj;
+#endregion
+```
+
+- `explosionDamage` is how much damage will be dealt to the player when hit with the explosion of the enemy. It is public so we can easily adjust the damage in the Unity Inspector.
+- `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
+- `explosionObj` will hold a game object that contains the explosion animation. 
 
 ![](./images/fig2.5.png) Fig 2.5
 
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
+
+Functions to modify:
+
+*Enemy.cs* -> `Explode()`
 
 **Task: Implement Explode()**
 
@@ -105,7 +119,7 @@ Solution (translate hex below to ASCII):
 
 ## Enemy Animation 
 
-Enemies look boring as a static sprite. Lets give it some character by animating their walk cycle. In this case, the ghost enemy doesn't have legs so its going to float around instead. 
+Right now, the ghost is a static sprite. Lets give it some character by animating their walk cycle. (In this case, float cycle). 
 
 Add an `Animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
 
