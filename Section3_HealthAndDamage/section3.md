@@ -16,7 +16,6 @@ Open the `PlayerController` script and create a new region under the existing va
 #region Health_variables
 public float maxHealth;
 float currHealth;
-public Slider HPSlider;
 #endregion
 ```
 
@@ -53,16 +52,6 @@ private void Die(){
 ```
 Solution: 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 72 59 4A 52 31 41 34 4B 4F 67 6B 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 31 30
 ```
-Next, navigate to the `Enemy` script, where you will implement the same `TakeDamage()` function from the `PlayerController` script.
-
-1. Reuse your damage code inside of `TakeDamage()` inside the `Enemy` script.
-    - Don't forget to include a `Debug.Log()`!
-
-{: .important}
-> Below is the hex code for the solution.
-```
-Solution: 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 72 59 4A 52 31 41 34 4B 4F 67 6B 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 39 34 20
-```
 
 Now, both the enemy and the player have a functional health system, but they do not have a way to damage one another. To add a damage system, we will be using 2D raycasts.
 
@@ -85,9 +74,9 @@ foreach(RaycastHit2D hit in hits){
 ```
 1. Using the `transform.CompareTag()` function, call the `TakeDamage()` function inside of the enemy's `Enemy` script.
     - The variable `hit` refers to the GameObject of an enemy within the player’s attack hitbox.
-    - You want to check whether you are actually hitting an enemy, or else you can run into issues from trying to use `GetComponent()` on a nonexistent `Enemy` script.
 2. In the `Enemy` script, call `TakeDamage()` inside of the player's `PlayerController` script inside of the `Explode()` function. 
     - Additionally, destroy the enemy GameObject when the enemy hitbox finds its target.
+    - Look at the code from PlayerController and take note of how they 
 
 {: .important}
 > Below is the hex code for the solution.
@@ -95,4 +84,4 @@ foreach(RaycastHit2D hit in hits){
 Solution: 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 72 59 4A 52 31 41 34 4B 4F 67 6B 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 35 36 37
 ```
 
-Now the enemy and player in our game can deal damage and kill each other. Change the health value of the player in the inspector to make sure that the player dies or does not die, and takes damage as expected.
+Now the enemy and player in our game can deal damage and kill each other. Initialize the health value of the player in the inspector to test out if the player takes damage as expected, and they die if, and only if, the player reaches 0 health.

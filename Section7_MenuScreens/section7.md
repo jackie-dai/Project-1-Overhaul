@@ -10,11 +10,13 @@ Head to the *Scenes* folder in the Inspector, and right click to create a new sc
 
 Create a `Text` object under the new canvas and name it *TitleText*. Increase the font size to 40, change both alignments to the centered option, and change both `Horizontal Overflow` and `Vertical Overflow` to *Overflow*. Change the text to your game’s title. (You can choose this name! If you don’t care, call it *Awesome Game*) 
 
-Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen.
+Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. 
 
 ![disable view](images/fig8.1.png)
 
-Change the `Color` of the image to your choice of background color. Add a `Button` object to the *MainMenuCanvas* and lower the button either in the scene or by changing the `Y` position to -75 in the `Inspector`. Access the *Text* object, the child of *Button*, and change the text to *“Start Game"*.
+Change the `Color` of the image to your choice of background color. 
+
+Add a `Button` object to the *MainMenuCanvas* and lower the button either in the scene or by changing the `Y` position to -75 in the `Inspector`. Access the *Text* object, the child of *Button*, and change the text to *“Start Game"*.
 
 ## Win and Lose Screens
 
@@ -60,9 +62,9 @@ private void Awake()
     - If it does, it destroys itself, the GameObject, to prevent itself from overwriting the existing `GameManager`.
 - After the if statement, it makes sure that the `GameManager` is not deleted when the game switches between scenes, so that scripts can continue to reference `GameManager`.
 
-Why put so much effort into maintaining a proper `GameManager` script? `GameObjects` are typically not supposed to persist between scenes unless directed by the line `DontDestroyOnLoad(gameObject)`. However, the `GameManager` script tends to hold important variables that correspond to all parts of the game, from scores to player information and even sound settings. Keeping a single version of the `GameManager` script lets the game retain its own information so that it can be used all throughout the game’s different scenes.
+Why put so much effort into maintaining a proper `GameManager` script? `GameObjects` are typically not supposed to persist between scenes. However, the `GameManager` script tends to hold important variables that correspond to all parts of the game, from scores to player information and even sound settings. Keeping a single version of the `GameManager` script by using the line `DontDestroyOnLoad(gameObject)` lets the game retain its own information so that it can be used all throughout the game’s different scenes.
 
-Once you’ve looked at the code above, scroll down to the Scene_transitions region containing four empty functions; “StartGame()”, “LoseGame()”, “WinGame()”, and “MainGame()”. Each of these functions will run whenever a scene change is needed.
+Once you’ve looked at the code above, scroll down to the `Scene_transitions` region containing four empty functions; `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`. Each of these functions will run whenever a scene change is needed.
 
 1. Using `SceneManager.LoadScene()`, fill in the functions `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.
 	- `SceneManager.LoadScene()` uses 1 string argument, which is the name of the scene that needs to be loaded. 
