@@ -35,7 +35,7 @@ Task: Create two more scenes, *WinScene* and *LoseScene*, that will show up when
 
 To hold all of the scene management code, we will be using a `GameManager` script. The `GameManager` script is typically where, as the name suggests, most of the game management code is stored. Since most of the code that maintains the gameplay has been delegated to other scripts, this `GameManager` script will control scene management.
 
-Create an empty `GameObject` and name it *GameManager*. Create the tag *GameController* and assign it to the *GameManager*. This is so we can reference the `GameObject` more easily in later scripts. Open the `GameManager` script and take a look at the code below:
+Open the `GameManager` script and take a look at the code below:
 
 ```
 using UnityEngine.SceneManagement;
