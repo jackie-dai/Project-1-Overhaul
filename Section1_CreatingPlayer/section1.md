@@ -209,7 +209,7 @@ Now, add an `if` statement at the very beginning of `Update()` to check if `isAt
 
 Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `hitBoxTiming` and `endAnimationTiming` as 0.1, and `Movespeed` remaining the same at 2.
 
-If you press play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
+If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
 You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
  
