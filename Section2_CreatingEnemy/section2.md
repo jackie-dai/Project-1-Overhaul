@@ -60,13 +60,13 @@ public Transform player
 
 Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
 
+**Task 2.1: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
+
 Functions to modify:
 
 *Enemy.cs*  script -> `Move()` and `Update()`
 
 *LineOfSight* script -> `OnTriggerEnter2D()`
-
-**Task 2.1: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
 Solution (translate hex to ASCII): 
 
@@ -94,11 +94,11 @@ public GameObject explosionObj;
 
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
+**Task 2.2: Implement Explode()**
+
 Functions to modify:
 
 *Enemy.cs* -> `Explode()`
-
-**Task 2.2: Implement Explode()**
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
 The raycast returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.
