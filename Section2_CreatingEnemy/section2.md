@@ -66,7 +66,7 @@ Functions to modify:
 
 *LineOfSight* script -> `OnTriggerEnter2D()`
 
-**Task: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
+**Task 2.1: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
 Solution (translate hex to ASCII): 
 
@@ -98,7 +98,7 @@ Functions to modify:
 
 *Enemy.cs* -> `Explode()`
 
-**Task: Implement Explode()**
+**Task 2.2: Implement Explode()**
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
 The raycast returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.
@@ -112,7 +112,12 @@ Solution (translate hex below to ASCII):
 
 You've implemented the `Explode()` function, but nothing actually happens yet. That's because it hasn't been called yet. Call this function to make the enemy explode upon contact with the player. 
 
-**Task: In *Enemy.cs*, Invoke your Explode() function in OnCollisionEnter2D() if the enemy collides with the player.**
+**Task 2.3: In *Enemy.cs*, Invoke your Explode() function in OnCollisionEnter2D() if the enemy collides with the player.**
+
+Functions to modify:
+
+*Enemy.cs* -> `OnCollisionEnter2D()`
+
 
 Solution (translate hex below to ASCII): 
 
