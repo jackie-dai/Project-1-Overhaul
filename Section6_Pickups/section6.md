@@ -38,7 +38,11 @@ private int healAmount;
 
 When a player walks over a health potion, it should boost their health points and disappear; signaling to the player that the potion has been used. 
 
-**Task: In *HealthPack.cs* fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with. Add the potion sound to your script as well.**
+**Task 6.1: In *HealthPack.cs* fill in the `OnTriggerEnter2D()` function so the player gains `healAmount` of health when collided with. Add the potion sound to your script as well.**
+
+Functions to modify:
+
+*HealthPack.cs* -> `OnTriggerEnter2D()`
 
 Solution (translate hex to ASCII):
 ```
@@ -55,7 +59,11 @@ Under a new region `Healthpack_variables`, create a variable with type `GameObje
 
 When a player interacts with a chest, the chest should disappear, leaving behind a health potion for the player to pick up. 
 
-**Task: Fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a Health Pack** 
+**Task 6.2: Fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a Health Pack** 
+
+Functions to modify:
+
+*Chest.cs* -> `DestroyChest()`
 
 Solution (translate hex to ASCII):
 ```
@@ -72,13 +80,10 @@ Here is a example of what your scene should look like now.
 
 ##  Interacting with Pickups
 
-We just implemented the Interact() function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
+We just implemented the Open() function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
 As of right now, the function is not being used. Lets make use of it now.
 
-The `Interact()` function should be called whenever the player presses "E" on a chest.  
-
-//note: change function name Interact() -> Open()
-
+The `Open()` function should be called whenever the player presses "E" on a chest.  
 
 First, open up the *PlayerController.cs* script and add a conditional if statement inside the `Update()` function to repeatedly check if the player presses the "E" key. If the "E" key is pressed, call the *PlayerController*'s `Interact()` function; we  shall implement the functionality of this function in the next step.
 
@@ -94,9 +99,13 @@ void Update() {
 
 ```
 
-Still inside the *PlayerController.cs* script, navigate down to the Interact() function. This function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instances `Interact()` function to drop a *Health Potion*.
+Still inside the *PlayerController.cs* script, navigate down to the Interact() function. This function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instances `Open()` function to drop a *Health Potion*.
 
-**Task: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object` if so, call that `Chest`'s `Interact()` function.**
+**Task 6.3: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object` if so, call that `Chest`'s `Open()` function.**
+
+Functions to modify:
+
+*PlayerController.cs* -> `Interact()`
 
 Hints:
 
