@@ -26,7 +26,15 @@ Now, create another sprite GameObject and name it `HealthPack`. Repeat the follo
 
 Navigate to the Scripts folder `Assets > Scripts` and add the *HealthPack.cs* script to your *HealthPack* game object. Double click the script to edit it. 
 
-In *HealthPack.cs*, start by creating a new region `HealthPack_variables` and add a int variable named `healthAmount`.
+```
+#region HealthPack_variables
+[SerializeField]
+[Tooltip("amount the player heals")]
+private int healAmount;
+#endregion
+```
+
+- `healAmount` will be the amount of health recovered once the user picks up the health potion.
 
 When a player walks over a health potion, it should boost their health points and disappear; signaling to the player that the potion has been used. 
 
