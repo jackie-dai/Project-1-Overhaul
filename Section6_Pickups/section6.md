@@ -101,7 +101,7 @@ void Update() {
 
 Still inside the *PlayerController.cs* script, navigate down to the Interact() function. This function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instances `Open()` function to drop a *Health Potion*.
 
-**Task 6.3: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object` if so, call that `Chest`'s `Open()` function.**
+**Task 6.3: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object if so, call that `Chest`s `Open()` function.**
 
 Functions to modify:
 
