@@ -57,9 +57,6 @@ public Transform player
 
 - `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This is public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
-Now in the awake() function, set the rb variable to the RigidBody 2D component attached to the enemy game object by using *GetComponent<>()* (fig 2.4).
-
-![](./images/fig2.4.png) Fig 2.4
 
 Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
 
@@ -93,7 +90,7 @@ public GameObject explosionObj;
 - `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
 - `explosionObj` will hold a game object that contains the explosion animation. 
 
-![](./images/fig2.5.png) Fig 2.5
+![](./images/fig2.5.png) Fig 2.3
 
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
