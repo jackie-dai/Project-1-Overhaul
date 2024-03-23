@@ -35,7 +35,7 @@ Attach a Circle Collider 2D to your newly created *LineOfSight* game object and 
 
 ### The Enemy Script
 
-Now, let's make the enemy chase the player. Open up the *Enemy.cs* script in the scripts folder. Below are the variables you'll need to complete this task:  
+Now, let's make the enemy chase the player. Open up the `Enemy.cs` script located under the scripts folder. Below are the variables you'll need to complete this task:  
 
 ```
 #region Movement_variables
