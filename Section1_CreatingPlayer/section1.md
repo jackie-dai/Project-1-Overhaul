@@ -20,7 +20,7 @@ ___
 2. Be able to move the player object in any direction.
 
 Open up the *SampleScene* scene located in `assets/scenes`. You should see a grassy 2D map in your scene view. 
-Look in the hierarchy and and select the *Player* object. In the *Sprite Renderer* component, change the Sprite from None to `idle_east_1`.
+Look in the hierarchy and select the *Player* object. In the *Sprite Renderer* component, change the Sprite from None to `idle_east_1`.
 
 Add a new component titled *Rigidbody 2D* and a *Capsule Collider 2D*. Make sure that the `Body Type` for the Rigidbody component is `Dynamic` and `Gravity Scale` is `0`. Check the `Freeze Rotation` box as well.
 
