@@ -11,16 +11,19 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 3. Implement the ghost walking animation for the enemy
 
 ## Enemy Setup
-Like you did with the player, make a new game object and name it `Enemy`, attach a Circle Collider 2D and a Rigidbody 2D.
+First,  create a new empty game object by right clicking in the hierarchy and name it `Enemy`. Attach a **SpriteRenderer**, **Circle Collider 2D**, and a **Rigidbody 2D**.
+
+In the *SpriteRenderer* component, change the Sprite from None to `Enemy 1, and set the *Sorting Layer* to **Enemy**. 
+
+Look at the RigidBody2D component:
 
 ![](./images/fig2.1.png) Fig 2.1
-
-Inside the RigidBody2D component:
 
 - Set the gravity scale to zero (fig 2.1) 
 - Check the box next to rotation to freeze the z rotation (fig 2.1)
 
-Next, set the Enemy game object's tag to Enemy.
+Finally, set the Enemy game object's tag to Enemy.
+
 Now, we have a basic enemy game object. 
 
 ## Setting Up Enemy Line of Sight
