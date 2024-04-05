@@ -32,7 +32,7 @@ Now, we have a basic enemy game object.
 
 An enemy should attack the player if the player is within a certain radius. 
 
-To create a detection system, lets make a new game object that is a **child of the Enemy game object**; name this game object `LineOfSight`. 
+To get started on a detection system, make a new empty game object named `LineOfSight`; this object should be **a child of the Enemy game object**. In order to parent them, in your hierarchy, select and drag the child object (LineOfSight) over the parent object (Enemy), if you let go of the mouse button and drop the object ontop of `Enemy`, `LineOfSight` should get indented and is now a child of the `Enemy` game object. 
 
 Attach a Circle Collider 2D to your newly created *LineOfSight* game object and **check the IsTrigger checkbox**. When the player enters this circle collider, it will notify the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range.
 
