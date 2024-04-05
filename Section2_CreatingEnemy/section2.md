@@ -13,7 +13,7 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 ## Enemy Setup
 First,  create a empty game object by right clicking in the hierarchy and name it `Enemy`. Attach a **SpriteRenderer**, **Circle Collider 2D**, and a **Rigidbody 2D**.
 
-In the *SpriteRenderer* component, change the Sprite from None to `Enemy 1. 
+In the *SpriteRenderer* component, change the Sprite from None to `Enemy 1`. 
 
 If you can't see the Enemy object, this is because it is hidden behind the *Grassy Map* layer. To fix this, still inside *SpriteRenderer*, **change the Sorting Layer from Default to Enemy**
 
