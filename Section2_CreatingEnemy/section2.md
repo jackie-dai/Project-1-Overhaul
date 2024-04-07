@@ -60,14 +60,14 @@ public Transform player
 
 - `moveSpeed` will let us control the movement speed of the enemy. It is public so that we can adjust the enemy's speed in the unity inspector. 
 
-- `EnemyRB`** will hold a reference to the enemy's Rigidbody2D. This way, we can manipulate the rigidbody's velocity property to create movement.
+- `EnemyRB` will hold a reference to the enemy's Rigidbody2D. This way, we can manipulate the rigidbody's velocity property to create movement.
 
 - `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This is public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
 
 Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
 
-**Task 2.1: implement move() and finish the logic in update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
+**Task 2.1: implement Move() and finish the logic in Update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
 
 Functions to modify:
 
@@ -108,7 +108,7 @@ Functions to modify:
 *Enemy.cs* -> `Explode()`
 
 Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
-The raycast returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.
+`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.   
 Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in *Assets > Prefabs* that you can drag into *ExplosionObj*.
 
 Solution (translate hex below to ASCII):

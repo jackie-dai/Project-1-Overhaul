@@ -8,9 +8,9 @@ Our goal for this section is to allow the player and enemy to defeat each other 
 
 #### Summary:
 1. Create a script that stores health and damage for both enemies and players.
-2. Send damage values from the players to the enemies when an attack hits, and vice versa.
+2. Send damage values from the players to the enemies when an attack lands, and vice versa.
 
-Open the `PlayerController` script and create a new region under the existing variables called `Health_variables`. Next, create two float variables within this region; `currHealth` and `maxHealth`. Only the `maxHealth` variable needs to be public, as you will not have to change the `currHealth` variable directly during the game’s runtime.
+Open the `PlayerController` script and take a look under the region called `Health_variables`. Create two float variables within this region; `currHealth` and `maxHealth`. Only the `maxHealth` variable needs to be public, as you will not have to change the `currHealth` variable directly during the game’s runtime.
 
 ```
 #region Health_variables

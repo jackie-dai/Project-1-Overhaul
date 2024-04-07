@@ -75,7 +75,7 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
      -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectfully. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
   2. Update the function `private void Move(){}` function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
      -  You will need 5 cases to determine what the player should do.
-     -  Set `PlayerRB.velocity` to `Vector.up/down/left/right` based on which case you are on.
+     -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
   
 To check if we have coded this correctly, put in some value for Movespeed and see if the player moves.
 
