@@ -76,7 +76,7 @@ foreach(RaycastHit2D hit in hits){
     - The variable `hit` refers to the GameObject of an enemy within the player’s attack hitbox.
 2. In the `Enemy` script, call `TakeDamage()` inside of the player's `PlayerController` script inside of the `Explode()` function. 
     - Additionally, destroy the enemy GameObject when the enemy hitbox finds its target.
-    - Look at the code from PlayerController and take note of how they 
+    - Look at the code from PlayerController and take note of how they access variables from GameObjects that are caught in the raycasts.
 
 {: .important}
 > Below is the hex code for the solution.
