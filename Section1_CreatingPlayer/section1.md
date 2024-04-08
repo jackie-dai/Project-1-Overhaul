@@ -72,7 +72,7 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
 - In `Update()`, you will need to do two things.
   1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
      -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
-     -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectfully. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
+     -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectively. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
   2. Update the function `private void Move(){}` function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
      -  You will need 5 cases to determine what the player should do.
      -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
@@ -212,6 +212,9 @@ Save your script, and go back into the inspector for the Player object. Set `Dam
 If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
 You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
+
+{: .note}
+> Make sure you are constantly saving your project using either `Ctrl+S` or `File > Save` whenever you make changes to it. Unity can crash at any time, so saving frequently can reduce the damage done to your progress when these unlikely scenarios may occur.
  
 
 

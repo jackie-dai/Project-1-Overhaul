@@ -8,19 +8,19 @@ In this section, you will implement a chest object and a health potion object, b
 2. Create a chest that drops healthpacks when the player opens it
 
 ## Setting Up  Chest and HealthPack
-Right click in the hierarchy to create a new sprite GameObject `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
+Right click in the hierarchy to create a new sprite GameObject through `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
 
-1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *Chest.png* into the `Sprite Renderer` component's `Sprite` box.
+1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *chest* sprite into the `Sprite Renderer` component's `Sprite` box. Alternatively, you can click on the circle next to the `Sprite` box and search the name *chest*.
 
 2. Inside the `Sprite Renderer` component, look under "Additional Settings", set the `Sorting Layer` to `Enemy`.
 
 ![](./images/fig6.1.png) Fig 6.1
 
-2. Add a `Rigidbody 2D` component and a `Box Collider 2D` component. Change the `Rigidbody 2D`'s body type to `Kinematic`. Kinematic means this game object is unaffected by gravity and can only be moved by scripts.
+3. Add a `Rigidbody 2D` component and a `Box Collider 2D` component. Change the `Rigidbody 2D`'s body type to `Kinematic`. Kinematic means this game object is unaffected by gravity and can only be moved by scripts.
 
 ![](./images/fig6.2.png) Fig 6.2
 
-Now, create another sprite GameObject and name it `HealthPack`. Repeat the following steps above for `HealthPack`.
+Now, create another sprite GameObject and name it `HealthPack`. Repeat the following steps above for `HealthPack`, while making sure to check the `IsTrigger` checkbox under the `Box Collider 2D` component.
 
 ### Health Pack Script
 
@@ -53,13 +53,13 @@ Make your `HealthPack` game object into a prefab.
 
 ## Chest Script
 
-Navigate to the Scripts folder again and add the *Chest.cs* script to your *Chest* game object. Double click the script to edit it.
+Change the *Chest* object's tag to `Chest`. Navigate to the Scripts folder again and add the *Chest.cs* script to your *Chest* game object. Double click the script to edit it.
 
 Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthPack`. We will need this variable to spawn health packs when chests are opened. 
 
 When a player interacts with a chest, the chest should disappear, leaving behind a health potion for the player to pick up. 
 
-**Task 6.2: Fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a Health Pack** 
+**Task 6.2: Fill out the `DestroyChest()` function so a chest is destroyed and leaves in-place a Health Pack.** 
 
 Functions to modify:
 
@@ -93,7 +93,7 @@ First, open up the *PlayerController.cs* script and add a conditional if stateme
 
 void Update() {
     if (Input.GetKeyDown(KeyCode.E)) {
-        Interact()
+        Interact();
     }
 }
 
@@ -101,7 +101,7 @@ void Update() {
 
 Still inside the *PlayerController.cs* script, navigate down to the Interact() function. This function, when invoked, will check if the player is facing a chest, if so, it will call that particular `Chest` instances `Open()` function to drop a *Health Potion*.
 
-**Task 6.3: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object if so, call that `Chest`s `Open()` function.**
+**Task 6.3: Implement `Interact()`: use a `BoxCastAll` to check if the player is facing a `Chest` game object if so, call that `Chest`'s `Open()` function.**
 
 Functions to modify:
 

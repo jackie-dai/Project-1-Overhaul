@@ -2,9 +2,6 @@
 
 Now that the core gameplay has been implemented, we can now round off our game with menu screens that allow the player to navigate from opening the game to playing it and vice versa. Menu screens are a quick way to add polish to your game and improve the user experience, as well as enforcing the style or theme that your game is going for.
 
-{: .note}
-> Make sure you are constantly saving your project using either `Ctrl+S` or `File > Save` whenever you make changes to it. Unity can crash at any time, so saving frequently can reduce the damage done to your progress when these unlikely scenarios may occur.
-
 ## Main Menu
 Head to the *Scenes* folder in the Inspector, and right click to create a new scene with `Create > Scene`. Name this scene *MainMenu*, and open the scene. Create a `Canvas` (this will also make an `EventManager`), and name it *MainMenuCanvas*. 
 
