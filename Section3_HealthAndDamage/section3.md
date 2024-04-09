@@ -43,7 +43,7 @@ private void Die(){
 1. Using the `value` parameter, change `currHealth` inside of the `TakeDamage()` and `Heal()` functions depending on if the player is receiving damage or healing damage.
     - Call the `Die()` function whenever the player receives too much damage.
     - Limit `currHealth` to `maxHealth` when healing damage, since we do not want `currHealth` to surpass `maxHealth` when implementing the health bar.
-    - Add a `Debug.Log()`, containing a message that displays `currHealth`'s value.
+    - Add a `Debug.Log()` to `TakeDamage()`, containing a message that displays `currHealth`'s value.
 2. In the `Enemy` script, implement `TakeDamage()` using the same code in the `PlayerController` script.
 
 {: .important}
