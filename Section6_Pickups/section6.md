@@ -12,7 +12,7 @@ Right click in the hierarchy to create a new sprite GameObject `2D Object > Spri
 
 1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *chest* sprite into the `Sprite Renderer` component's `Sprite` box. Alternatively, you can click on the circle next to the `Sprite` box and search the name *chest*.
 
-2. Inside the `Sprite Renderer` component, look under "Additional Settings", set the `Sorting Layer` to `Enemy`.
+2. Inside the `Sprite Renderer` component, look under "Additional Settings", set the `Sorting Layer` to `Environment`.
 
 ![](./images/fig6.1.png) Fig 6.1
 
