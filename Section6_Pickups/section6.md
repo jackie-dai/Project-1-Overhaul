@@ -48,8 +48,7 @@ Solution (translate hex to ASCII):
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 50 6C 77 31 4F 30 55 75 5F 7A 51 3F 73 69 3D 66 74 31 61 6D 35 71 64 4F 6C 6E 77 58 37 70 52 26 74 3D 32 37 39
 ```
-
-Make your `HealthPack` game object into a prefab.
+Make sure to attach your `HealthPack.cs` script to your `HealthPotion` game object. Then, drag your `HealthPack` game object into `Assets>Prefabs` to turn it into prefab.
 
 ## Chest Script
 
