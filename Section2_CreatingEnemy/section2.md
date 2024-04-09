@@ -87,10 +87,11 @@ Solution (translate hex to ASCII):
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
 ```
+Once implemented, if the player enters the enemy's line of sight, the enemy should chase the player down. However, if you stop moving, the ghost will slowly push you off the screen. We'll address this in the next part.
 
 ## Dealing Damage to the Player 
 
-Now, when the player gets too close to the enemy, the ghost should chase the player. However, if you stop moving, the ghost will slowly push you off the screen. Instead, we want the ghost to explode and deal damage upon contact with the player. Let's implement the logic for it.
+Once the enemy makes contact with the player, it should explode and deal damage to the player. Let's implement the logic for it.
 
 ```
 #region Attack_variables
