@@ -67,13 +67,15 @@ public Transform player
 
 Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
 
-**Task 2.1: implement Move() and finish the logic in Update() of the Enemy script. Fill in the logic for OnTriggerEnter2D() in the LineOfSight script**
+**Task 2.1: Implement `Move()` and finish the logic in `Update()` of the Enemy script. Fill in the logic for `OnTriggerEnter2D()` in the LineOfSight script**
 
 Functions to modify:
 
 *Enemy.cs*  script -> `Move()` and `Update()`
 
 *LineOfSight* script -> `OnTriggerEnter2D()`
+
+**Hint: The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null.**
 
 Solution (translate hex to ASCII): 
 
