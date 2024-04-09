@@ -62,7 +62,7 @@ public Transform player
 
 - `EnemyRB` will hold a reference to the enemy's Rigidbody2D. This way, we can manipulate the rigidbody's velocity property to create movement.
 
-- `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This is public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
+- `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This can be either public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
 
 Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
