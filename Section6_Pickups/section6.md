@@ -16,7 +16,7 @@ Right click in the hierarchy to create a new sprite GameObject `2D Object > Spri
 
 ![](./images/fig6.1.png) Fig 6.1
 
-3. Add a `Rigidbody 2D` component and a `Box Collider 2D` component. Change the `Rigidbody 2D`'s body type to `Kinematic`. Kinematic means this game object is unaffected by gravity and can only be moved by script manipulation. Additionally, freeze both x and y positions as well as the z rotation. The `BoxCollder2D` can be left in its default settings
+3. Add a `Rigidbody 2D` component and a `Box Collider 2D` component. Change the `Rigidbody 2D`'s body type to `Kinematic`. Kinematic means this game object is unaffected by gravity and can only be moved by script manipulation. Additionally, freeze both x and y positions as well as the z rotation.
 
 ![](./images/fig6.2.png) Fig 6.2
 
