@@ -37,7 +37,7 @@ We can also change the color of the slider to represent health more clearly. Loo
 
 Your slider should look something like this. Move the value slider in the Slider component of the `HPSlider` object between 0 and 1 to make sure that the health bar depletes completely and reaches the maximum.
 
-Now, we have to connect the player’s health to the health bar with the power of scripting. Head to `PlayerController.cs` and add `using UnityEngine.UI;` to the top of the script so that we can access Unity’s UI components from the code. Create a `Slider` variable titled `HPSlider`, which will hold a reference to the health bar in the scene itself.
+Now, we have to connect the player’s health to the health bar with the power of scripting. Head to `PlayerController.cs` and add `using UnityEngine.UI;` to the top of the script so that we can access Unity’s UI components from the code. Under the health_variables region, create a `Slider` variable titled `HPSlider`, which will hold a reference to the health bar in the scene itself.
 
 Next, you will make the health bar move depending on the player's health in `PlayerController.cs`.
 
