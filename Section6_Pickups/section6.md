@@ -8,7 +8,7 @@ In this section, you will implement a chest object and a health potion object, b
 2. Create a chest that drops healthpacks when the player opens it
 
 ## Setting Up  Chest and HealthPack
-Right click in the hierarchy to create a new sprite GameObject through `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
+Right click in the hierarchy to create a new sprite GameObject `2D Object > Sprite` and rename it to `Chest`. Then, follow these steps: 
 
 1. In your project's directory, navigate to `Assets > Sprites > Items` and drag the *chest* sprite into the `Sprite Renderer` component's `Sprite` box. Alternatively, you can click on the circle next to the `Sprite` box and search the name *chest*.
 
