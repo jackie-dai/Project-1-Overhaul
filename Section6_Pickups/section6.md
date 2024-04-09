@@ -112,9 +112,8 @@ Functions to modify:
 
 *PlayerController.cs* -> `Interact()`
 
-Hints:
-
-- BoxCastAll() cast rays contained in the width and height of a box. It returns an array of all the objects that get hit by the raycast. The objects will be of type RayCastHit2D.  
+Tip: `BoxCastAll()` works exactly the same as `CircleCastAll()`but raycasts in the shape of a rectangle instead of a circle. Here is the link to the documentation: https://docs.unity3d.com/ScriptReference/Physics.BoxCastAll.html 
+For the size of the box we used 0.5f for both its width and height.
 
 Solution (translate hex to ascii):
 ```
