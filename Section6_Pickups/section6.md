@@ -85,8 +85,8 @@ Here is a example of what your scene should look like now.
 
 ##  Interacting with Pickups
 
-We just implemented the Open() function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
-As of right now, the function is not being used. Lets make use of it now.
+We just implemented the `Open()` function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
+As of right now, we can't interact and open the chest. We will implement that functionality in this section.
 
 The `Open()` function should be called whenever the player presses "E" on a chest.  
 
