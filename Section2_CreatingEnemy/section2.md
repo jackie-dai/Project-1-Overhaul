@@ -144,7 +144,7 @@ Solution (translate hex below to ASCII):
 
 Right now, the ghost is a static sprite. Lets give it some character by animating their walk cycle. (In this case, float cycle). 
 
-Add an `Animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot) follow the video below to make your own animation.
+Add an `Animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot), delete the Enemy controller and follow the video below to make your own animation.
 
 https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
