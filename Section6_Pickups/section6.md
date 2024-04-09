@@ -57,8 +57,7 @@ Change the *Chest* object's tag to `Chest`. Navigate to the Scripts folder again
 {: .note}
 > Notice we only have a tag for chests but not potions. This is because the tag will be needed for interactions between the player and chest but the player will not be interacting with the potion besides collison detection.
 
-
-Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthPack`. We will need this variable to spawn health packs when chests are opened. 
+Under a new region `Healthpack_variables`, create a variable with type `GameObject` and name it `healthPack`. Make sure it is public. We will use this reference to spawn health packs when chests are opened. 
 
 When a player interacts with a chest, the chest should disappear, leaving behind a health potion for the player to pick up. 
 
