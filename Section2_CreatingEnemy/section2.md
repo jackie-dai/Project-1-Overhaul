@@ -36,7 +36,10 @@ To get started on a detection system, make a new empty game object named `LineOf
 
 Now, look over to the inspector column and click the three dots at the top-right of the Transform component, select *Reset*. This ensures the `LineOfSight` object is at the center of the `Enemy` object.
 
-Attach a Circle Collider 2D to your newly created *LineOfSight* game object and **check the IsTrigger checkbox**. When the player enters this circle collider, it will notify the enemy to move and attack the player; adjust the radius of the LineOfSight collider to fit your desired range.
+Attach a Circle Collider 2D to your newly created *LineOfSight* game object. When the player enters this circle collider, it will notify the enemy to move and attack the player. You must make two changes:
+
+- Check the *IsTrigger* box. This way your line of sight isn't physically present and cause you to bump into things.
+- Adjust the radius of the collider to your desired range (radius of 2 is what we chose)
 
 ![](./images/fig2.2.png) Fig 2.2
 
