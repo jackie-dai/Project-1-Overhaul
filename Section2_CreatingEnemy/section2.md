@@ -105,8 +105,6 @@ public GameObject explosionObj;
 - `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
 - `explosionObj` will hold a game object that contains the explosion animation. 
 
-![](./images/fig2.5.png) Fig 2.3
-
 Inside the same *Enemy* script, there is a Explode() function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
 
 **Task 2.2: Implement Explode()**
