@@ -36,8 +36,6 @@ To hold all of the scene management code, we will be using a `GameManager` scrip
 Open the `GameManager` script and take a look at the code below:
 
 ```
-using UnityEngine.SceneManagement;
-
 public static GameManager Instance = null;
 
 #region Unity_functions
@@ -54,7 +52,6 @@ private void Awake()
 #endregion
 ```
 
-- Importing the `SceneManagement` package allows us to access specific functions to move between scenes in the game.
 - The if block checks if a `GameManager` script exists already:
     - If it doesn’t, it assigns itself to a reference that can be accessed in other scripts.
     - If it does, it destroys itself, the GameObject, to prevent itself from overwriting the existing `GameManager`.
@@ -62,7 +59,9 @@ private void Awake()
 
 Why put so much effort into maintaining a proper `GameManager` script? `GameObjects` are typically not supposed to persist between scenes. However, the `GameManager` script tends to hold important variables that correspond to all parts of the game, from scores to player information and even sound settings. Keeping a single version of the `GameManager` script by using the line `DontDestroyOnLoad(gameObject)` lets the game retain its own information so that it can be used all throughout the game’s different scenes.
 
-Once you’ve looked at the code above, scroll down to the `Scene_transitions` region containing four empty functions; `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`. Each of these functions will run whenever a scene change is needed.
+Once you’ve looked at the code above, add `using UnityEngine.SceneManagement;` to the top of the script. Importing the `SceneManagement` package allows us to access specific functions to move between scenes in the game.
+
+Scroll down to the `Scene_transitions` region containing four empty functions; `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`. Each of these functions will run whenever a scene change is needed.
 
 1. Using `SceneManager.LoadScene()`, fill in the functions `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.
 	- `SceneManager.LoadScene()` uses one string argument, which is the name of the scene that needs to be loaded. 
