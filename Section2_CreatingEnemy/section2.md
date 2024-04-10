@@ -83,13 +83,15 @@ Functions to modify:
 
 *Enemy.cs* -> `Move()` and `Update()`
 
-**Hint: The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null. How can you utilize this logic to check if the player is within the line of sight?**
+{: .hint} 
+>The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null. How can you utilize this logic to check if the player is within the line of sight?
 
 Solution (translate hex to ASCII): 
 
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 4B 4A 52 68 50 6E 78 72 36 54 45 48 51 71 59 69 26 74 3D 35 39 31
 ```
+
 Once implemented, if the player enters the enemy's line of sight, the enemy should chase the player down. However, if you stop moving, the enemy will slowly push you off the screen. We'll address this in the next part.
 
 ## Dealing Damage to the Player 
@@ -108,7 +110,7 @@ public GameObject explosionObj;
 - `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
 - `explosionObj` will hold a Prefab that plays the explosion animation when instantiated. 
 
-Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and ghost make contact. Upon contact, a explosion animation will spawn in place of the enemy and deal *explosionDamage* to any player within the *explosionRadius*. Then, destroy the enemy game object at the very end.
+Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage") if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject.
 
 **Task 2.2: Implement Explode()**
 
