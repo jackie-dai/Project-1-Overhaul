@@ -11,7 +11,7 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 3. Implement the ghost walking animation for the enemy
 
 ## Enemy Setup
-First,  create a empty game object by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody 2D*, and a *Circle Collider 2D*.
+First,  create a empty game object by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody2D*, and a *CircleCollider2D*.
 
 In the *SpriteRenderer* component, change the Sprite from *None* to *Enemy 1*. 
 
