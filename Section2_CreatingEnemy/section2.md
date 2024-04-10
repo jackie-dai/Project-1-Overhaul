@@ -11,11 +11,12 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 3. Implement the ghost walking animation for the enemy
 
 ## Enemy Setup
-First,  create a empty game object by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody2D*, and a *CircleCollider2D*.
+
+First, create a empty GameObject by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody2D*, and a *CircleCollider2D*.
 
 In the *SpriteRenderer* component, change the Sprite from *None* to *Enemy 1*. 
 
-If you can't see the Enemy object, this is because it is hidden behind the *Grassy Map* layer. To fix this, still inside *SpriteRenderer*, **change the Sorting Layer from Default to Enemy**
+If you can't see the Enemy GameObject, this is because it is hidden behind the *Grassy Map* layer. To fix this, still inside *SpriteRenderer*, **change the Sorting Layer from Default to Enemy**
 
 Look at the **RigidBody2D** component:
 
@@ -26,26 +27,26 @@ Look at the **RigidBody2D** component:
 
 For the **Circle Collider 2D**, you can leave everything default
 
-Finally, set the Enemy game object's tag to Enemy.
+Finally, attach the `Enemy.cs` script to the enemy GameObject and set it's tag to Enemy.
 
-Now, we have a basic enemy game object. 
+Now, we have a basic enemy GameObject. 
 
 ## Setting Up Enemy Line of Sight
 
 An enemy should attack the player if the player is within a certain radius. 
 
-To get started on a detection system, make a new empty game object named `LineOfSight`; this object should be **a child of the Enemy game object**. In order to parent them, in your hierarchy, select and drag the child object (LineOfSight) over the parent object (Enemy), if you let go of the mouse button and drop the object ontop of `Enemy`, `LineOfSight` should get indented and is now a child of the `Enemy` game object.
+To get started on a detection system, make a empty GameObject named `LineOfSight`; this object should be **a child of the Enemy GameObject**. In order to parent them, in your hierarchy, select and drag the child object (LineOfSight) over the parent object (Enemy), if you let go of the mouse button and drop the object ontop of `Enemy`, `LineOfSight` should get indented and is now a child of the `Enemy` GameObject.
 
-Now, look over to the inspector column and click the three dots at the top-right of the Transform component, select *Reset*. This ensures the `LineOfSight` object is at the center of the `Enemy` object.
+Now, look at the inspector column and click the three dots at the top-right of the Transform component, select *Reset*. This ensures the `LineOfSight` GameObject is at the center of the `Enemy` GameObject.
 
-Attach a Circle Collider 2D to your newly created *LineOfSight* game object. When the player enters this circle collider, it will notify the enemy to move and attack the player. You must make two changes:
+Attach a *CircleCollider2D* to your newly created *LineOfSight* GameObject. When the player enters this circle collider, it will notify the enemy to move and attack the player. You must make two changes:
 
-- Check the *IsTrigger* box. This way your line of sight isn't physically present and cause you to bump into things.
-- Adjust the radius of the collider to your desired range (radius of 2 is what we chose)
+- Check the *IsTrigger* box. This way your circle collider won't bump into other objects
+- Adjust the radius of the collider to your desired range (staff solution uses a radius of 2)
 
 ![](./images/fig2.2.png) Fig 2.2
 
-Lastly, attach your `LineOfSight.cs` script to your *LineOfSight* game object.
+Lastly, attach your `LineOfSight.cs` script to your *LineOfSight* GameObject.
 
 ### The Enemy Script
 
@@ -72,17 +73,17 @@ public Transform player
 - `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This can be either public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
 
-Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, move the enemy towards the player's transform position.** You will need to edit the `Move()` and `Update()` functions in the *Enemy* script, in addition to the `OnTriggerEnter2D()` function in the *LineOfSight* script.
+Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, set *PlayerController.cs*'s `player` variable to the Transform of the *player* GameObject, then move the enemy towards the player's transform position.** You will need to edit the `OnTriggerEnter2D()` function in the *LineOfSight.cs* script, in addition to the `Move()` and `Update()` functions in the *Enemy.cs* script.
 
 **Task 2.1: Implement `Move()` and finish the logic in `Update()` of the Enemy script. Fill in the logic for `OnTriggerEnter2D()` in the LineOfSight script**
 
 Functions to modify:
 
-*Enemy.cs* -> `Move()` and `Update()`
-
 *LineOfSight.cs* -> `OnTriggerEnter2D()`
 
-**Hint: The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null.**
+*Enemy.cs* -> `Move()` and `Update()`
+
+**Hint: The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null. How can you utilize this logic to check if the player is within the line of sight?**
 
 Solution (translate hex to ASCII): 
 
