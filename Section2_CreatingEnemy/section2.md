@@ -120,7 +120,7 @@ Functions to modify:
 
 {: .note}  
 >Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCastAll.html) to detect if the player is within the `explosionRadius`. For the direction parameter, you can just pass in `Vector2.zero`.
-`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `Transform` and `tag` property.   
+`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `Transform` and `tag` property. You can reference the `AttackRoutine()` back in section 1 of making the player. 
 Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in `Assets > Prefabs` that you can drag into `explosionObj` in the unity inspector.
 
 Solution (translate hex below to ASCII):
