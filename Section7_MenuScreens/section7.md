@@ -10,6 +10,7 @@ Create a `Text` object under the new canvas and name it *TitleText*. Increase th
 Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. 
 
 ![disable view](images/fig8.1.png)
+Fig 8.1
 
 Change the `Color` of the image to your choice of background color. 
 
