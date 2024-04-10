@@ -1,6 +1,6 @@
 ## Section 6 - Pickups
 
-In this section, you will implement a chest object and a health potion object, then implement the ability to open these chests and receive potions.
+In this section, you will implement a chest object and a health potion object, then program the functionality to open these chests and receive health potions.
 
 #### Summary:
 
