@@ -110,17 +110,18 @@ public GameObject explosionObj;
 - `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
 - `explosionObj` will hold a Prefab that plays the explosion animation when instantiated. 
 
-Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage") if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject.
+Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage") if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject. After implementing `Explode()`, call `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy. 
 
-**Task 2.2: Implement Explode()**
+**Task 2.2: Implement Explode() and invoke `Explode()` in `OnCollisionEnter2D()` if the collides with the enemy.**
 
 Functions to modify:
 
-*Enemy.cs* -> `Explode()`
+*Enemy.cs* -> `Explode()` and `OnCollisionEnter2D()`
 
-Hint: Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCast.html) to detect if the player is within the `explosionRadius`.
-`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `transform` and `tag` property.   
-Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in *Assets > Prefabs* that you can drag into *ExplosionObj*.
+{: .note}  
+>Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCastAll.html) to detect if the player is within the `explosionRadius`. For the direction parameter, you can just pass in `Vector2.zero`.
+`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `Transform` and `tag` property.   
+Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in `Assets > Prefabs` that you can drag into `explosionObj` in the unity inspector.
 
 Solution (translate hex below to ASCII):
 
@@ -128,24 +129,11 @@ Solution (translate hex below to ASCII):
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 30 37 55 51 48 35 7A 41 52 65 6A 6E 69 6B 30 58 26 74 3D 31 32 30 37
 ```
 
-You've implemented the `Explode()` function, but nothing actually happens yet. That's because it hasn't been called yet. Call this function to make the enemy explode upon contact with the player. 
-
-**Task 2.3: In *Enemy.cs*, Invoke your Explode() function in OnCollisionEnter2D() if the enemy collides with the player.**
-
-Functions to modify:
-
-*Enemy.cs* -> `OnCollisionEnter2D()`
-
-
-Solution (translate hex below to ASCII): 
-
-```
-68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 49 39 4A 47 39 6B 55 31 37 52 49 3F 73 69 3D 63 77 74 5A 78 74 78 76 30 37 4C 68 52 51 39 50 26 74 3D 31 35 31 32
-```
+To test your implementation, walk into the enemy's line of sight and let it collide with you. The enemy should die and spawn a explosion upon contact. BOOM!
 
 ## Enemy Animation 
 
-Right now, the ghost is a static sprite. Lets give it some character by animating their walk cycle. (In this case, float cycle). 
+Right now, the enemy is a static ghost sprite. Lets give it some character by animating their walk cycle. (In this case, float cycle). 
 
 Add an `Animator` component to the Enemy. We already provide you with a ready-to-go animation located in `Assets > Animations > Enemy`, so you can just drag and drop that in to the controller of the animator component via the unity inspector. However, if you would like to get some experience working with the animator and blendtrees (which you'll do a lot), delete the Enemy controller and follow the video below to make your own animation.
 
