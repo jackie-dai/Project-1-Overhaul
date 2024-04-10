@@ -5,7 +5,7 @@ Now that the core gameplay has been implemented, we can now round off our game w
 ## Main Menu
 Head to the *Scenes* folder in the Inspector, and right click to create a new scene with `Create > Scene`. Name this scene *MainMenu*, and open the scene. Create a `Canvas` (this will also make an `EventManager`), and name it *MainMenuCanvas*. 
 
-Create a `Text` object under the new canvas and name it *TitleText*. Increase the font size to 40, change both alignments to the centered option, and change both `Horizontal Overflow` and `Vertical Overflow` to *Overflow*. Change the text to your game’s title. (You can choose this name! If you don’t care, call it *Awesome Game*) 
+Create a `Text` object under the new canvas and name it *TitleText*. Increase the font size to 40, and change both alignments to the centered option. Change the text to your game’s title. (You can choose this name! If you don’t care, call it *Awesome Game*) 
 
 Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. 
 
@@ -17,10 +17,10 @@ Add a `Button` object to the *MainMenuCanvas* and lower the button either in the
 
 ## Win and Lose Screens
 
-Task: Create two more scenes, *WinScene* and *LoseScene*, that will show up when the win and lose conditions are met respectively.
+**Task 7.1: Create two more scenes, *WinScene* and *LoseScene*, that will show up when the win and lose conditions are met respectively.**
 
 {: .note}
-> Both scenes, at minimum, will have the same components as the *MainMenu* scene, so you can use the `Duplicate Scene` function to save some time. Make sure to change the components and rename the scene so that they are distinct from the main menu.
+> Both scenes, at minimum, will have the same components as the *MainMenu* scene, so you can duplicate the scenes to save some time. Make sure to change the components and rename the scene so that they are distinct from the main menu, and that you don't confuse yourself when hopping from scene to scene when you're editing.
 
 {: .important}
 > Below is the hex code for the solution.
@@ -64,8 +64,15 @@ Why put so much effort into maintaining a proper `GameManager` script? `GameObje
 Once you’ve looked at the code above, scroll down to the `Scene_transitions` region containing four empty functions; `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`. Each of these functions will run whenever a scene change is needed.
 
 1. Using `SceneManager.LoadScene()`, fill in the functions `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.
-	- `SceneManager.LoadScene()` uses 1 string argument, which is the name of the scene that needs to be loaded. 
+	- `SceneManager.LoadScene()` uses one string argument, which is the name of the scene that needs to be loaded. 
 	- Each function above should load to a different scene. Scene names are **CASE SENSITIVE**, so double-check your spelling and cases first if you run into issues.
+
+
+**Task 7.2: Implement `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.**
+
+Functions to modify:
+
+*GameManager.cs* -> `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.
 
 {: .important}
 > Below is the hex code for the solution.
@@ -102,12 +109,20 @@ private void OnTriggerEnter2D(Collider2D coll)
 ```
 
 Since the `EndTriggerScript` script is attached to an invisible `GameObject` with a `BoxCollider2D` component, the method `OnTriggerEnter2D()` concludes the game when the player reaches the goal.
-First, it searches the `Hierarchy` for a `GameObject` with the *GameController* tag. The only `GameObject` that should have this tag is the `GameManager` object.
+First, it searches the `Hierarchy` for a GameObject with the *GameController* tag. The only `GameObject` that should have this tag is the `GameManager` object.
 Afterwards, it accesses `WinGame()` from the `GameManager` script, thereby moving the scene to *WinScene*.
 
-1. Using this method of ending the game, implement a lose condition in the `Health` script.
+1. Using this method of ending the game, implement a lose condition in the `PlayerController` script.
 	- The game should end when the player's health reaches 0.
 	- The current scene should move to the scene titled *LoseScene*.
+
+**Task 7.3: Trigger a game over by moving the current scene to LoseScene when the lose condition is met.**
+
+Functions to modify:
+
+*GameManager.cs* -> ???
+
+**Hint: Think of what typically triggers game overs in video games, and look for the function in the script that supports this game over.**
 
 {: .important}
 > Below is the hex code for the solution.
@@ -115,4 +130,4 @@ Afterwards, it accesses `WinGame()` from the `GameManager` script, thereby movin
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 41 69 68 54 49 45 32 67 2D 6C 55 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 35 38 
 ```
 
-Give yourself a pat on the back! You have a working game in your hands. Export the game through `File > Build Settings...` and press `Build` after checking that all scenes have been added to the build. A zip file containing your game will be created, and you can upload this file to the submission form for us to grade.
+Give yourself a pat on the back! You have a super mega epic video game of the year triple AAA worthy in your hands!!! Upload your project onto a respository, fill out the Project 1 form on the Decal website, and go take a breather. The facilitator team grants you permission to do so.

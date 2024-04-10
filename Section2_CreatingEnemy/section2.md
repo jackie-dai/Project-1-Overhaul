@@ -78,9 +78,9 @@ Using the three variables above, implement the logic for the enemy's movement sy
 
 Functions to modify:
 
-*Enemy.cs*  script -> `Move()` and `Update()`
+*Enemy.cs* -> `Move()` and `Update()`
 
-*LineOfSight* script -> `OnTriggerEnter2D()`
+*LineOfSight.cs* -> `OnTriggerEnter2D()`
 
 **Hint: The variable `Player` will hold a reference to the player's Transform when it is is within line of sight. Otherwise, it will return null.**
 

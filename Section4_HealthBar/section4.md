@@ -15,6 +15,7 @@ Make sure to set your player’s health to at least 5 so that it does not die to
 Right click on the Hierarchy and select `UI > Canvas.` This will create a `Canvas` object that will store all of your UI elements, along with an `EventSystem` object that manages interactions between the player and the UI. **Do not delete the `EventSystem` object.**
 
 ![disable view](images/fig4.1.png)
+Fig 4.1
 
 {: .highlight}
 With the `Screen Space - Overlay` setting on the `Canvas` object, all UI elements within the `Canvas` will be rendered on the player’s screen above the game world. This will suit our needs of a health bar being visible to the player at all times. If you decide on adding more UI elements in the future, such as a points system or a second resource bar, they will also be displayed on top of the game world as long as they are stored inside of the `Canvas` object.
@@ -24,16 +25,18 @@ To make our health bar, we will be using a `Slider` object. Right click on the `
 Rename this slider to *HPSlider* and click on the crosshair under the `RectTransform`component. Hold Shift and Alt while clicking on the anchor preset on the top left. This should anchor your slider to the top left of the screen. To keep it from hugging the top left corner of the screen too tightly, change the `X` and `Y` positions to 5 and -5 respectively. (You are free to adjust the `Width` and `Height` of the health bar to make the bar take up more space on the screen.)
 
 ![disable view](images/fig4.2.png)
+Fig 4.2
 
 Your slider object’s transform should look something like this.
 
 Slider objects can be placed within a settings menu for the player to change volume and more, but they can also be used for progress bars and resource bars. A key difference is whether the slider can be interacted with by the player or not.
 
-Under the HPSlider object, there are three children objects titled `Background`, `Fill Area`, and `Handle Slide Area`. For our health bar, we do not need our slider to be interactable, so you can delete the `Handle Slide Area` object. Click on the `Fill Area` object and change the Left and Right transforms to 0. Next, click on the `Fill` object under the `Fill Area` and change the `Width` transform to 0. This is to allow the fill area to reach both sides of the slider completely.
+Under the *HPSlider* object, there are three children objects titled `Background`, `Fill Area`, and `Handle Slide Area`. For our health bar, we do not need our slider to be interactable, so you can delete the `Handle Slide Area` object. Click on the `Fill Area` object and change the Left and Right transforms to 0. Next, click on the `Fill` object under the `Fill Area` and change the `Width` transform to 0. This is to allow the fill area to reach both sides of the slider completely.
 
 We can also change the color of the slider to represent health more clearly. Look for the `Fill` object under the `Fill Area` object, and change the color to whatever color you think represents health the best (Red is typically the standard for video games). Change the color of the `Background` object to a darker or lighter shade of `Fill Area`'s.
 
 ![disable view](images/fig4.3.png)
+Fig 4.3
 
 Your slider should look something like this. Move the value slider in the Slider component of the `HPSlider` object between 0 and 1 to make sure that the health bar depletes completely and reaches the maximum.
 
@@ -45,6 +48,12 @@ Next, you will make the health bar move depending on the player's health in `Pla
      - This is to make sure the scene loads in with the correct amount of health displayed.
 2. Update `HPSlider.value` in `TakeDamage()` and `Heal()` under `Health_functions` the same way as in `Awake()`.
      - The order that you update UI variables matters! Make sure that the correct values are being displayed in the scene.
+
+**Task 4.1: Update Awake(), TakeDamage(), and Heal() to support UI functionality.**
+
+Functions to modify:
+
+*PlayerController.cs*  -> `Awake()`, `TakeDamage()`, and `Heal()`
 
 {: .important}
 > Below is the hex code for the solution.
