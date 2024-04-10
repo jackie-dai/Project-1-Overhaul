@@ -6,7 +6,7 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 
 #### Summary:
 
-1. Create enemy that tracks and chases the player
+1. Create an enemy that tracks and chases the player
 2. When the enemy makes contact with the player, it explodes and deals damage to the player
 3. Implement the ghost walking animation for the enemy
 
