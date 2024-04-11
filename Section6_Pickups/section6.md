@@ -120,7 +120,7 @@ Solution (translate hex to ascii):
 
 Now, scatter some chests into your map by dragging and dropping the `Chest` prefab into your scene multiple times.
 
-![](./images/fig6.3.png) 
+![](./images/fig6.3.png) Fig 6.3
 
 Here is a example of what your scene should look like now.
 
