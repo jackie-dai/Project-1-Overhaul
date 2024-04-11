@@ -131,6 +131,8 @@ Solution (translate hex below to ASCII):
 
 To test your implementation, walk into the enemy's line of sight and let it collide with you. The enemy should die and spawn a explosion upon contact. BOOM!
 
+![](./images/fig2.3.png) Fig 2.3
+
 ## Enemy Animation 
 
 Right now, the enemy is a static ghost sprite. Lets give it some character by animating their walk cycle. (In this case, float cycle). 
