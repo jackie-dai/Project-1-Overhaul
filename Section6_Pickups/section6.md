@@ -124,4 +124,4 @@ Now, scatter some chests into your map by dragging and dropping the `Chest` pref
 
 Here is a example of what your scene should look like now.
 
-Walk up to the chests, press E for a health potion, and walk over the potion to gain health.
+Now you should be able to walk up to the chests, press E for a health potion, and walk over the potion to gain health.
