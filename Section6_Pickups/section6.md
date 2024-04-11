@@ -110,7 +110,7 @@ Functions to modify:
 *PlayerController.cs* -> `Interact()`
 
 {: .important}
->`BoxCastAll()` works the same as `CircleCastAll()` but raycasts in the shape of a rectangle instead of a circle. Highly recommend reading over the documentation here: https://docs.unity3d.com/ScriptReference/Physics.BoxCastAll.html 
+>`BoxCastAll()` works the same as `CircleCastAll()` but raycasts in the shape of a rectangle instead of a circle. We highly reccommend reading over the documentation here: https://docs.unity3d.com/ScriptReference/Physics.BoxCastAll.html 
 For the size parameter we used 0.5f for both its width and height. Keep in mind we want to cast in the direction the player is facing. 
 
 Solution (translate hex to ascii):
