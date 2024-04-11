@@ -24,7 +24,7 @@ Now, create another sprite GameObject and name it *HealthPotion*. Repeat the fol
 
 ### Health Pack Script
 
-Navigate to the Scripts folder `Assets > Scripts` and add the *HealthPotion.cs* script to your *HealthPack* GameObject. Double click the script to edit it. 
+Navigate to the Scripts folder `Assets > Scripts` and attach the *HealthPotion.cs* script to your *HealthPack* GameObject. Double click the script to edit it. 
 
 ```
 #region HealthPack_variables
@@ -78,12 +78,13 @@ Solution (translate hex to ASCII):
 
 Back in the Unity editor, with *Chest* selected, drag and drop a reference to the `HealthPotion` prefab into this variable via the Unity inspector. Then, make your `Chest` into a prefab. 
 
-You won't be able to test your implemention until you've finished the next task.
+{: .note}
+>You won't be able to test your implemention until you've finished the next task.
 
 ##  Interacting with Pickups
 
 We just implemented the `Open()` function for *Chest*, that when called, destroys the *Chest* game object and leaves in its place a *Health Potion*. 
-As of right now, we can't interact and open the chest. We will implement that functionality in this section.
+As of right now, we can't interact and open the chest. Let's implement that functionality in this section.
 
 The `Open()` function should be called whenever the player presses "E" on a chest.  
 
@@ -108,8 +109,9 @@ Functions to modify:
 
 *PlayerController.cs* -> `Interact()`
 
-Tip: `BoxCastAll()` works exactly the same as `CircleCastAll()`but raycasts in the shape of a rectangle instead of a circle. Here is the link to the documentation: https://docs.unity3d.com/ScriptReference/Physics.BoxCastAll.html 
-For the size of the box we used 0.5f for both its width and height.
+{: .important}
+>`BoxCastAll()` works the same as `CircleCastAll()` but raycasts in the shape of a rectangle instead of a circle. Highly recommend reading over the documentation here: https://docs.unity3d.com/ScriptReference/Physics.BoxCastAll.html 
+For the size parameter we used 0.5f for both its width and height. Keep in mind we want to cast in the direction the player is facing. 
 
 Solution (translate hex to ascii):
 ```
