@@ -9,6 +9,17 @@ In this section, you will handle all the sound aspects of the project, along wit
 First, enable the *AudioManager* object in the Hierarchy. Then, in your *Player* script, add the sounds where you want it to be played. In order to do this, you will need to add this line of code to where you want the sound to be played: `FindObjectOfType<AudioManager>().Play("SoundName");`. 
 
 To find the names of each sound, go into the *AudioManager* object, and click on each sound dropdown to find the *Name* field. You will need to add this line for each sound in their respective locations. The link to the tutorial with the timestamp can be found below.
+
+**Task 5.1: Implement all sounds listed in the *AudioManager* in their respective places**
+
+Here is a list of the sounds you'll need to implement:
+
+- PlayerHurt
+- PlayerDeath
+- Explosion
+- EnemyHurt
+- PlayerAttack
+  
 - Hint: Make sure to play the sound *before* the object is destroyed, or else it will not play!
 - Potions are not yet implemented, so there is no need to add the potion effect. **You will implement the sound for the potion during the next section.**
 
