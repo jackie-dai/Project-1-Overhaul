@@ -20,8 +20,11 @@ Here is a list of the sounds you'll need to implement:
 - EnemyHurt
 - PlayerAttack
   
-- Hint: Make sure to play the sound *before* the object is destroyed, or else it will not play!
-- Potions are not yet implemented, so there is no need to add the potion effect. **You will implement the sound for the potion during the next section.**
+{: .hint}
+>Make sure to play the sound *before* the object is destroyed, or else it will not play!
+
+{: .important}
+>Potions are not yet implemented, so there is no need to add the potion effect. **You will implement the sound for the potion during the next section.**
 
 Solution (translate hex to ASCII):
 ```
@@ -31,15 +34,8 @@ Solution (translate hex to ASCII):
 
 ## Bits and Pieces
 
-
-Open the *Grassy Map* object, and check the box in the Inspector. You'll notice that your player and the enemies have disappeared. This is because the game is rendering their sprites behind the map. To fix this, in the *Player* Inspector, go to `Sprite Renderer -> Additional Settings -> Sorting Layer` and set it to *Player*. Similarly, go to the *Enemy* object, and set it to the *Enemy* sorting layer.
-- You will usually have to create these sorting layers yourself, but we've provided them for you for this project.
-
-
 Now, we want the camera to move with the player. So, click on the *CM vcam1* object in the Hierarchy, and check it. Then, in the `CinemachineVirtualCamera` component, drag your *Player* object into the Follow area. Then, go into the `Main Camera` and check the `CinemachineBrain` component. You should now be able to play the game with the camera centered on the player, as you explore the map.
 
-
-Finally, set your *Enemy* object as a prefab, by dragging it into the *Prefabs* folder. Delete the *Enemy* object in your scene (after making sure that it's in your prefab folder), and drag your new prefab into the scene to spawn enemies. Add enemies as you see fit into the map.
-- In your hierarchy, create an empty `GameObject` called *Enemies*, and drag each new Enemy into this empty object. This keeps your Hierarchy clean and organized!
+In your hierarchy, create an empty `GameObject` called *Enemies*, and drag each Enemy into this empty object. This keeps your Hierarchy clean and organized!
 
 Now, you should be able to play your game in the map, and have sound effects along with it! 
