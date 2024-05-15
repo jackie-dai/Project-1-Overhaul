@@ -42,7 +42,7 @@ Now, look at the inspector column and click the three dots at the top-right of t
 Attach a *CircleCollider2D* to your newly created *LineOfSight* GameObject. When the player enters this circle collider, it will notify the enemy to move and attack the player. You must make two changes:
 
 - Check the *IsTrigger* box. This way your circle collider won't bump into other objects
-- Adjust the radius of the collider to your desired range (staff solution uses a radius of 2)
+- Adjust the radius of the collider to your desired range (staff solution uses a radius of 4)
 
 ![](./images/fig2.2.png) Fig 2.2
 
