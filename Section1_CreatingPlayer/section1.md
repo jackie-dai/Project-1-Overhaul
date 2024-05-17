@@ -75,9 +75,8 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
   1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
      -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
      -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectively. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
-  2. Call the Move() function after you've stored the user input values. 
-
-Update the function `private void Move(){}` function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
+  2. Call the Move() function after you've stored the user input values.
+- Now, Implement the Move() function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
   -  You will need 5 cases to determine what the player should do.
   -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
   
@@ -124,8 +123,6 @@ IEnumerator AttackRoutine()
 
 #endregion
 ```
-
-
 - `Damage` is how much damage you do each hit.
 - `attackSpeed` is how long you need to wait before you have to attack again. 
 - `attackTimer` will work with `attackSpeed` by timing when the player last hit. On attacking, it will reset, and count down once more.
