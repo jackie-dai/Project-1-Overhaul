@@ -11,7 +11,7 @@ ___
 #### 2. attack in four directions
 
 {: .important}
-> Spread throughout the entire write up are links to the "solution" on youtube. You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all youtube links.
+> Spread throughout the entire write up are links to the "solution" on youtube. You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all youtube links. You can use this website to do the translation: https://www.rapidtables.com/convert/number/hex-to-ascii.html
 
 ## Player Movement
 
