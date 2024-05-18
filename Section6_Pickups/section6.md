@@ -24,10 +24,10 @@ Now, create another sprite GameObject and name it *HealthPotion*. Repeat the fol
 
 ### Health Pack Script
 
-Navigate to the Scripts folder `Assets > Scripts` and attach the *HealthPotion.cs* script to your *HealthPack* GameObject. Double click the script to edit it. 
+Navigate to the Scripts folder `Assets > Scripts` and attach the *HealthPotion.cs* script to your *HealthPotion* GameObject. Double click the script to edit it. 
 
 ```
-#region HealthPack_variables
+#region HealthPotion_variables
 [SerializeField]
 [Tooltip("amount the player heals")]
 private int healAmount;
