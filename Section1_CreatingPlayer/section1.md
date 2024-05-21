@@ -74,9 +74,7 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
   -  You will need 5 cases to determine what the player should do.
   -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
   
-To check if we have coded this correctly, put in some value for `moveSpeed` (staff solution uses a value of 2f) and see if the player moves.
-
-To test it, click the play button once, and, after it loads, see if your player is visible, and moves using the WASD keys. 
+To check if we have coded this correctly, put in some value for `moveSpeed` (staff solution uses a value of 2f) and see if the player moves with the WASD keys.
 
 {: .note}
 > If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the *CinemachineBrain* component, and set the Z position to be -3.
