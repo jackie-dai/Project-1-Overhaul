@@ -264,4 +264,5 @@ If you press Play, you will now see that if you attack, the player will pause fo
 
 Congrationlations on finishing this long and tedious section! Feel free to take a tea break before moving onto the next section (:
 
-You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
+{: .note}
+> You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
