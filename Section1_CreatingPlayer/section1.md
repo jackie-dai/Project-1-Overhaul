@@ -90,11 +90,12 @@ To check if we have coded this correctly, put in some value for `moveSpeed` (sta
 > If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the *CinemachineBrain* component, and set the Z position to be -3.
 
 {: .highlight}
-You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+> You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
 
 ## Player Attacks
 
 #### Summary:
+
 1. Be able to attack when pressing the "J" key in all four directions
 2. Cast the hitbox in the right direction
 3. Add animations
