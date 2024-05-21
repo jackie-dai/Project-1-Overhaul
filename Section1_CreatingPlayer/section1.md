@@ -246,18 +246,22 @@ Now, add an `if` statement at the very beginning of `Update()` to check if `isAt
 
 Save your script, and go back into the inspector for the Player object. Set the following variables to these values:
 
+![Default variable values for Player](images/fig1.3.png)
 
+- `Movespeed` to 2
+- `Damage` to 2
+- `AttackSpeed` to 0.5
+- `hitBoxTiming` and `endAnimationTiming` to 0.1
 
-
-`Damage` to 2, `hitBoxTiming` and `endAnimationTiming` as 0.1, and `Movespeed` remaining the same at 2.
+Except for `hitBoxTiming` and `endAnimationTiming`, feel free to adjust the other variables to whatever values you desire; these are just values for the staff solution.
 
 {: .note}
 > Make sure you are constantly saving your project using either `Ctrl+S` or `File > Save` whenever you make changes to it. Unity can crash at any time, so saving frequently can reduce the damage done to your progress when these unlikely scenarios may occur.
 
 If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
+![Gif to show example of final result for section 1](images/example-final.gif)
+
+Congrationlations on finishing this long and tedious section! Feel free to take a tea break before moving onto the next section (:
+
 You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
-
- 
-
-
