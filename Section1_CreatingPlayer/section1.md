@@ -138,38 +138,71 @@ IEnumerator AttackRoutine()
 {: .note}
 > You may notice that the data type of the `AttackRoutine()` function is an IEnumerator rather than a public or private function. This is an example of a **coroutine** which you will learn about in a later lab. If you have taken 61A, it is similar to yield functions and generators.
 
-**Task 1.2: In `Update()`, using the key "J" as your attack key, call the private `Attack()` function when the "J" key is pressed down. You will need to use `Input.GetKeyDown(KeyCode.J)` to determine if the key is being pressed. If you need help, the link to the video tutorial is below.**
+**Task 1.2: Choose an Attack key, and in `Update()`, call the private `Attack()` function when your chosen attack key is pressed down. You will need to use `Input.GetKeyDown(KeyCode key)` function to determine if your chosen key is being pressed. The staff solution uses the J key as the attack key**
+
+Functions to modify:
+
+*PlayerController.cs* -> `Update()`
+
+Solution (translate hex to ascii):
 
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 31 34 39
 ```
 
+If you save, press play, and press your attack key, you should see in the bottom left a print statement saying `attacking now`. This is your console, and will be very helpful in debugging, and testing code in labs, and projects. It will also display any warnings, and errors that you may have.
 
-If you save, and press play, you should see in the bottom left a print statement saying `attacking now`. This is your console, and will be very helpful in debugging, and testing code in labs, and projects. It will also display any warnings, and errors that you may have.
+{: .note}
+> For now we just want to check if the attack key is working; you will implement the attacking logic in a later section.
 
-We will now make it such that you cannot spam the ability as fast as you can using the `attackSpeed` and `attackTimer` variables.
+We will now make it such that you cannot spam the ability as fast as you can using the `attackSpeed` and `attackTimer` variables. 
+
+{: .hint}
+> Re-read the definitions for `attackSpeed` and `attackTimer` above to understand how you can utilize these two variables to implement an attack cooldown.
 
 Initialize the `attackTimer` variable in `Awake()` to 0, as that will indicate that we can attack again. 
 
-Then, in Update, add a conditional statement to check if `attackTimer < 0`. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function, which will now also add `attackTimer = attackSpeed;` to set the cooldown. If you need help, the timestamp is below.
+**Task 1.3: In Update(), modify your attacking conditional statement to only call `Attack()` when attackTimer < 0. If not, we don't want to attack, and subtract `Time.deltaTime`, but if we do attack, we want to call the `Attack()` function AND set attackTimer to attackSpeed` to reset the cooldown.**
+
+Functions to modify: 
+
+*PlayerController.cs* -> `Update()`
+
+Solution (translate hex to ascii):
 
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 33 34 30
 ```
 
-Now, if you go to the Player object, there will be an input field for AttackSpeed, so set it to 3, save, and play the game to see if the cooldown is working. 
+Back in the Unity editor, if you select the Player object, there will be an input field for AttackSpeed, set it to 3, save, and play the game to see if the cooldown is working. 
 
-We now want it to only attack in the direction we are facing, which will use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`
+Notice when we walk in different directions, the player sprite doesn't switch the way it is facing, and it can only attack in one direction.
+
+**Task 1.4: Use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`**
+
+{: .note}
+> You only need to worry about **setting** `currDirection`, the code will use `currDirection` to set the correct Player sprite when walking and attacking, that is already taken care of for you. If you would like to set the details of the implementation look inside `AttackRoutine()`and the starter code for `Move()` or look through the video which implements it from scratch.
+
+Functions to modify: 
+
+*PlayerController.cs* -> `Move()`
+
+Solution (translate hex to ascii):
+
+```
+68 74 74 70 73 3A 2F 2F 77 77 77 2E 79 6F 75 74 75 62 65 2E 63 6F 6D 2F 77 61 74 63 68 3F 76 3D 64 73 4D 6B 44 6E 75 43 64 2D 41 26 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 33 34 30 73
+```
 
 You can now check to make sure that it works by adding another Debug statement in `Attack()` to check the current direction with `Debug.Log(currDirection);` which will print out two values to display the current direction. 
 
 Finally, in the inspector, change the AttackSpeed to 0.5, since we don't only want to be able to attack every 3 seconds.
 
-Now, we will start on being able to cast the hitbox in the right direction, which will mainly be done in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`.
+Now, we will start on being able to cast the hitbox in the right direction, which is already done for you in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`. You just need to modify the `Attack()` function by calling `AttackRoutine()` using the function `StartCoroutine()`.
 
-`AttackRoutine()` needs to be called using the function `StartCoroutine()`, which will be run at the very end of our `Attack()` function. 
+{: .hint}
+> `StartCoroutine()` takes in a coroutine/IEnumerator as its only argument. https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
 
-Your `AttackRoutine()` function should look like this:
+Here is a breakdown of the `AttackRoutine()` function:
 
 ```
 IEnumerator AttackRoutine()
@@ -190,7 +223,6 @@ IEnumerator AttackRoutine()
 
     yield return new WaitForSeconds(hitBoxTiming);
     isAttacking = false;
-
 }
 ```
   - We set `isAttacking` to true, and set the player's velocity to 0, as, a design choice, the player will not be able to move when they attack.
@@ -198,27 +230,38 @@ IEnumerator AttackRoutine()
   - `hits` is an array of all the objects that are colliding with a box that is in front of the player. To learn more about `BoxCastAll`, you can check out the function description [here](https://docs.unity3d.com/ScriptReference/Physics2D.BoxCastAll.html). **We highly suggest you read through the documentation and understand what each input is.** The video also describes each variable at the timestamp given below.
   - We will then iterate through each hit that we found from our raycast, and if it has the tag of "Enemy", will print the statement "Tons of damage".
   - We will then wait `hitBoxTiming` seconds, and then set `isAttacking` back to false.
-  
+
+A video breakdown of this function is avaliable here:
+
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 31 37 37 39
 ```
 
+Go back into Unity, and set the Player object to have the Player tag. This will be right under the Object name. 
+
 {: .note}
 > Tags are labels we can assign to every game object, and is useful in selecting specific types of objects.
 
-
-Go back into Unity, and set the Player object to have the Player tag. This will be right under the Object name. 
-
 Now, add an `if` statement at the very beginning of `Update()` to check if `isAttacking` is true. If so, then just return. 
 
-Save your script, and go back into the inspector for the Player object. Set `Damage` to 2, `hitBoxTiming` and `endAnimationTiming` as 0.1, and `Movespeed` remaining the same at 2.
+Save your script, and go back into the inspector for the Player object. Set the following variables to these values:
 
-If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
+![Default variable values for Player](images/fig1.3.png)
 
-You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
+- `Movespeed` to 2
+- `Damage` to 2
+- `AttackSpeed` to 0.5
+- `hitBoxTiming` and `endAnimationTiming` to 0.1
+
+Except for `hitBoxTiming` and `endAnimationTiming`, feel free to adjust the other variables to whatever values you desire; these are just values for the staff solution.
 
 {: .note}
 > Make sure you are constantly saving your project using either `Ctrl+S` or `File > Save` whenever you make changes to it. Unity can crash at any time, so saving frequently can reduce the damage done to your progress when these unlikely scenarios may occur.
- 
 
+If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
+![Gif to show example of final result for section 1](images/example-final.gif)
+
+Congrationlations on finishing this long and tedious section! Feel free to take a tea break before moving onto the next section (:
+
+You should also see the `anim` variable sprinkled around in the code. This will take care of the animation side of the player, which we have already provided for you.
