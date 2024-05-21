@@ -73,6 +73,13 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
 - Now, Implement the Move() function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
   -  You will need 5 cases to determine what the player should do.
   -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
+ 
+
+Solution (translate hex to ASCII):
+
+```
+68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 36 35
+```
   
 To check if we have coded this correctly, put in some value for `moveSpeed` (staff solution uses a value of 2f) and see if the player moves with the WASD keys.
 
@@ -81,10 +88,6 @@ To check if we have coded this correctly, put in some value for `moveSpeed` (sta
 
 {: .highlight}
 You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
-
-```
-68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 36 35
-```
 
 ## Player Attacks
 
