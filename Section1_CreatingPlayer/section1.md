@@ -170,7 +170,7 @@ Functions to modify:
 *PlayerController.cs* -> `Attack()`
 
 {: .note}
-> You can complete this task by only modifying `Update()` but the code will be more clean if you seperate your logic into `Attack()`
+> You can complete this task by only modifying `Update()` but the code will be more clean if you seperate your logic between the two functions `Update()` and `Attack()`
 
 Solution (translate hex to ascii):
 
