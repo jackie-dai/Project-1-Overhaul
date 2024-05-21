@@ -67,7 +67,7 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
 
 - In `Update()`, you will need to do two things.
   1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
-     -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
+     -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager->Axes` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
      -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectively. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
   2. Call the Move() function after you've stored the user input values.
 - Now, Implement the Move() function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
@@ -83,7 +83,7 @@ Solution (translate hex to ASCII):
 ```
 68 74 74 70 73 3A 2F 2F 79 6F 75 74 75 2E 62 65 2F 64 73 4D 6B 44 6E 75 43 64 2D 41 3F 6C 69 73 74 3D 50 4C 6B 54 71 66 35 44 42 7A 50 73 41 65 2D 70 52 35 62 44 55 64 77 48 69 43 4E 67 48 63 79 42 49 68 26 74 3D 33 36 35
 ```
-  
+
 To check if we have coded this correctly, put in some value for `moveSpeed` (staff solution uses a value of 2f) and see if the player moves with the WASD keys.
 
 {: .note}
