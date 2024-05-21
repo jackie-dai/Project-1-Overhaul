@@ -167,6 +167,10 @@ Initialize the `attackTimer` variable in `Awake()` to 0, as that will indicate t
 Functions to modify: 
 
 *PlayerController.cs* -> `Update()`
+*PlayerController.cs* -> `Attack()`
+
+{: .note}
+> You can complete this task by only modifying `Update()` but the code will be more clean if you seperate your logic into `Attack()`
 
 Solution (translate hex to ascii):
 
