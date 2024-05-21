@@ -74,6 +74,9 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
   -  You will need 5 cases to determine what the player should do.
   -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
  
+Functions to modify: 
+
+*PlayerController.cs* -> `Update()` and `Move()`
 
 Solution (translate hex to ASCII):
 
