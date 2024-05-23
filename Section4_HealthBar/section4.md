@@ -22,7 +22,7 @@ With the `Screen Space - Overlay` setting on the `Canvas` object, all UI element
 
 To make our health bar, we will be using a `Slider` object. Right click on the `Canvas` object and select `UI > Slider`. A slider should appear in the middle of your Scene view as a child to the `“Canvas”` object in the hierarc. 
 
-Rename this slider to *HPSlider* and click on the crosshair under the `RectTransform`component. Hold Shift and Alt while clicking on the anchor preset on the top left. This should anchor your slider to the top left of the screen. To keep it from hugging the top left corner of the screen too tightly, change the `X` and `Y` positions to 5 and -5 respectively. (You are free to adjust the `Width` and `Height` of the health bar to make the bar take up more space on the screen.)
+Rename this slider to *HPSlider* and click on the crosshair under the `RectTransform`component. Hold Shift and Alt (or Shift and Option if on Mac) while clicking on the anchor preset on the top left. This should anchor your slider to the top left of the screen. To keep it from hugging the top left corner of the screen too tightly, change the `X` and `Y` positions to 5 and -5 respectively. (You are free to adjust the `Width` and `Height` of the health bar to make the bar take up more space on the screen.)
 
 ![disable view](images/fig4.2.png)
 Fig 4.2
@@ -40,7 +40,7 @@ Fig 4.3
 
 Your slider should look something like this. Move the value slider in the Slider component of the `HPSlider` object between 0 and 1 to make sure that the health bar depletes completely and reaches the maximum.
 
-Now, we have to connect the player’s health to the health bar with the power of scripting. Head to `PlayerController.cs` and add `using UnityEngine.UI;` to the top of the script so that we can access Unity’s UI components from the code. Under the health_variables region, create a `Slider` variable titled `HPSlider`, which will hold a reference to the health bar in the scene itself.
+Now, we have to connect the player’s health to the health bar with the power of scripting. Head to `PlayerController.cs` and add `using UnityEngine.UI;` to the top of the script so that we can access Unity’s UI components from the code. Under the health_variables region, create a public `Slider` variable titled `HPSlider`, which will hold a reference to the health bar in the scene itself.
 
 Next, you will make the health bar move depending on the player's health in `PlayerController.cs`.
 

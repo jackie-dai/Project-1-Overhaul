@@ -7,7 +7,7 @@ Head to the *Scenes* folder in the Inspector, and right click to create a new sc
 
 Create a `Text` object under the new canvas and name it *TitleText*. Increase the font size to 40, and change both alignments to the centered option. Change the text to your game’s title. (You can choose this name! If you don’t care, call it *Awesome Game*) 
 
-Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. 
+Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. These values determine the offset between the respective side of the screen and the asset.
 
 ![disable view](images/fig8.1.png)
 Fig 8.1

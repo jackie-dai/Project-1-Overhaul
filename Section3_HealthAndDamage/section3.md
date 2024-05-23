@@ -14,8 +14,8 @@ Open the `PlayerController` script and take a look under the region called `Heal
 
 ```
 #region Health_variables
-public float maxHealth;
-float currHealth;
+public float maxHealth = 5;
+float currHealth = 5;
 #endregion
 ```
 
@@ -83,6 +83,7 @@ foreach(RaycastHit2D hit in hits){
 ```
 1. Using the `transform.CompareTag()` function, call the `TakeDamage()` function inside of the enemy's `Enemy` script.
     - The variable `hit` refers to the GameObject of an enemy within the player’s attack hitbox.
+    - This may be a good time to use the `GetComponent<>()` function!
 2. In the `Enemy` script, call `TakeDamage()` inside of the player's `PlayerController` script through the `Explode()` function. 
     - Additionally, destroy the enemy GameObject when the enemy hitbox finds its target.
     - Look at the code from PlayerController and take note of how they access variables from GameObjects that are caught in the raycasts.
