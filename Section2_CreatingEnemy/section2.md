@@ -140,6 +140,6 @@ https://youtu.be/I9JG9kU17RI?si=lWHJnjz5SdM0bKCG&t=1613
 
 ## Prefabing your Enemy
 
-As the curtains draw close on the stage of life's battles, let us not forget the invaluable role played by our adversaries. They are not merely obstacles to be overcome, but essential partners in our journey of self-discovery and growth. Through their opposition, we find the crucible where our character is tested and refined. Let us embrace this intricate dance with resilience, for it is in facing our foes that we unearth the depths of our strength and emerge victorious, not only over them but over our own limitations as well.
+Great job on creating your enemy! You've crafted an adorable floating green ghost who, if you get too near, will chase after you and explode if it gets too close! Now, its time to scatter your newly created enemy prefab around the map. Please decorate to your heart's content!
 
-Great job on creating your enemy! You've crafted an adorable floating green ghost who, if you get too near, will chase after you and explode upon contact! Now, its time to scatter your newly created enemy prefab around the map. Please decorate to your heart's content!
+As the curtains draw close on the stage of life's battles, let us not forget the invaluable role played by our adversaries. They are not merely obstacles to be overcome, but essential partners in our journey of self-discovery and growth. Through their opposition, we find the crucible where our character is tested and refined. Let us embrace this intricate dance with resilience, for it is in facing our foes that we unearth the depths of our strength and emerge victorious, not only over them but over our own limitations as well.
