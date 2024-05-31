@@ -72,10 +72,7 @@ public Transform player
 
 - `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This can be either public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
-
-Using the three variables above, implement the logic for the enemy's movement system: **if the player triggers the LineOfSight collider, set *PlayerController.cs*'s `player` variable to the Transform of the *player* GameObject, then move the enemy towards the player's transform position.** You will need to edit the `OnTriggerEnter2D()` function in the *LineOfSight.cs* script, in addition to the `Move()` and `Update()` functions in the *Enemy.cs* script.
-
-**Task 2.1: Implement `Move()` and finish the logic in `Update()` of the Enemy script. Fill in the logic for `OnTriggerEnter2D()` in the LineOfSight script**
+**Task 2.1: Using the three variables above, implement the logic for the enemy's movement system: if the player triggers the LineOfSight collider, set *PlayerController.cs*'s `player` variable to the Transform of the *player* GameObject, then move the enemy towards the player's transform position. You will need to edit the `OnTriggerEnter2D()` function in the *LineOfSight.cs* script, in addition to the `Move()` and `Update()` functions in the *Enemy.cs* script.**
 
 Functions to modify:
 
