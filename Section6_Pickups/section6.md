@@ -23,7 +23,7 @@ Right click in the hierarchy to create a new sprite GameObject `2D Object > Spri
 
 ![](./images/fig6.2.png) Fig 6.2
 
-Now, create another sprite GameObject and name it *HealthPotion*. Repeat the following steps above for *HealthPotion*, while making sure to check the **IsTrigger** checkbox under the *BoxCollider2D* component.
+Now, create another sprite GameObject and name it *HealthPotion*. Repeat the following steps above for *HealthPotion*, **while making sure to check the *IsTrigger* checkbox under the *BoxCollider2D* component.**
 
 ### Health Pack Script
 
