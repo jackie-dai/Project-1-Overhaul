@@ -26,7 +26,10 @@ Add a new component titled *Rigidbody 2D* and a *Capsule Collider 2D*. Make sure
 In the `Capsule Collider`, we want to set the hitbox of the sprite to be the same size as the sprite. In order to add some depth, we will set the hitbox as the feet of the sprite. You may use the numbers in the image below, and to check if your `Rigidbody` is also correct.
 ![Alt text](images/fig1.2.png)
 
-You should see a script already attached to the Player. Double click it, and open up the script.
+You should see the *Player.cs* script already attached to the Player. Double click it, and open up the script.
+
+{: .note}
+> There are two ways to open the script. You can either double click on it via the project directory or through the inspector by clicking on the three dots > edit script. 
 
 In order to keep our code clean, we will use `#region` boundaries to sort and organize our variables. You can see it in the given code here.
 
