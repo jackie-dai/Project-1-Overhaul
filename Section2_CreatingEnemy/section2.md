@@ -12,7 +12,7 @@ In this section, we will be creating a enemy for the player to fight. The enemy 
 
 ## Enemy Setup
 
-First, create a empty GameObject by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody2D*, and a *CircleCollider2D*.
+First, create an empty GameObject by right clicking in the hierarchy and name it `Enemy`. Attach a *SpriteRenderer*, *Rigidbody2D*, and a *CircleCollider2D*.
 
 In the *SpriteRenderer* component, change the Sprite from *None* to *Enemy 1*. 
 
