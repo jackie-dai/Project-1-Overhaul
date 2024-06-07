@@ -107,7 +107,7 @@ public GameObject explosionObj;
 - `explosionRadius` lets us control the enemy's explosion size. It is public so we can adjust the radius in the Unity Inspector
 - `explosionObj` will hold a Prefab that plays the explosion animation when instantiated. 
 
-Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage") if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject. After implementing `Explode()`, call `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy. 
+Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage")` if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject. After implementing `Explode()`, call `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy. 
 
 **Task 2.2: Implement Explode() and invoke `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy.**
 
