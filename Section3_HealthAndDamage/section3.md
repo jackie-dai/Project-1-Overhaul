@@ -1,6 +1,6 @@
 ## Section 3 - Health and Damage
 
-In this game, the player and the enemy want to take the other down in glorious combat. But without both health and damage systems, neither side can do anything to the other. 
+In this fleeting pursuit for glory we call a game, the player and the enemy wish only to vanquish the other in glorious combat. But without the foundation of a fair fight, health and damage systems, neither side could hope to triumph over the other. 
 
 Our goal for this section is to allow the player and enemy to defeat each other during the game as they exchange successful attacks.
 

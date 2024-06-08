@@ -1,8 +1,10 @@
 ## Section 4 - Health UI
 
+What is a sword without its scabbard? Functional, sure, but without something to keep it contained, it will be always hanging out of place.
+
 During the last section, we have successfully created a health and damage system for the player and the enemies. But as of right now, the player has no way of knowing how much health they have at any given moment.
 
-In this section, we will be using Unity’s UI (User Interface) components to create a health bar for our game that displays the amount of health that the player has.
+In this section, we will be using Unity’s UI (User Interface) components to create a health bar for our game that displays the amount of health that the player has. In a way, we'll be making the scabbard to our gameplay.
 
 ## Health Bar
 
