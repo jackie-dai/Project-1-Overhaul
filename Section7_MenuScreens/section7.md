@@ -2,17 +2,20 @@
 
 Now that the core gameplay has been implemented, we can now round off our game with menu screens that allow the player to navigate from opening the game to playing it and vice versa. Menu screens are a quick way to add polish to your game and improve the user experience, as well as enforcing the style or theme that your game is going for.
 
+1. Create a GameManager script and UI assets for the GameManager to control
+2. Create scenes for the game to switch between and implement the scene-switching logic
+
 ## Main Menu
 Head to the *Scenes* folder in the Inspector, and right click to create a new scene with `Create > Scene`. Name this scene *MainMenu*, and open the scene. Create a `Canvas` (this will also make an `EventManager`), and name it *MainMenuCanvas*. 
 
 Create a `Text` object under the new canvas and name it *TitleText*. Increase the font size to 40, and change both alignments to the centered option. Change the text to your game’s title. (You can choose this name! If you don’t care, call it *Awesome Game*) 
 
-Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Notice how the image moves behind the text in the Game view. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. These values determine the offset between the respective side of the screen and the asset.
+Create an `Image` under *MainMenuCanvas* and drag it above *TitleText* in the Hierarchy. Click on the `Anchor Preset` box on the top left of the `RectTransform` component and click on the bottom right box with 4 blue arrows extending outwards. Change the `Left`, `Right`, `Top`, and `Bottom` transforms to 0 to stretch the image toward the edges of the screen. These values determine the offset between the respective side of the screen and the asset.
 
 ![disable view](images/fig8.1.png)
 Fig 8.1
 
-Change the `Color` of the image to your choice of background color. 
+Change the `Color` of the image to your choice of background color. Notice how the text now renders in front of the image in the Game view because we moved the `Text` object above the `Image` object. 
 
 Add a `Button` object to the *MainMenuCanvas* and lower the button either in the scene or by changing the `Y` position to -75 in the `Inspector`. Access the *Text* object, the child of *Button*, and change the text to *“Start Game"*.
 
@@ -63,12 +66,13 @@ Once you’ve looked at the code above, add `using UnityEngine.SceneManagement;`
 
 Scroll down to the `Scene_transitions` region containing four empty functions; `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`. Each of these functions will run whenever a scene change is needed.
 
+**Task 7.2: Implement `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.**
+
 1. Using `SceneManager.LoadScene()`, fill in the functions `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.
 	- `SceneManager.LoadScene()` uses one string argument, which is the name of the scene that needs to be loaded. 
 	- Each function above should load to a different scene. Scene names are **CASE SENSITIVE**, so double-check your spelling and cases first if you run into issues.
 
 
-**Task 7.2: Implement `StartGame()`, `LoseGame()`, `WinGame()`, and `MainGame()`.**
 
 Functions to modify:
 
@@ -112,11 +116,11 @@ Since the `EndTriggerScript` script is attached to an invisible `GameObject` wit
 First, it searches the `Hierarchy` for a GameObject with the *GameController* tag. The only `GameObject` that should have this tag is the `GameManager` object.
 Afterwards, it accesses `WinGame()` from the `GameManager` script, thereby moving the scene to *WinScene*.
 
+**Task 7.3: Trigger a game over by moving the current scene to LoseScene when the lose condition is met.**
+
 1. Using this method of ending the game, implement a lose condition in the `PlayerController` script.
 	- The game should end when the player's health reaches 0.
 	- The current scene should move to the scene titled *LoseScene*.
-
-**Task 7.3: Trigger a game over by moving the current scene to LoseScene when the lose condition is met.**
 
 Functions to modify:
 

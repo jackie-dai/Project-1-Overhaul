@@ -7,7 +7,7 @@ Our goal for this section is to allow the player and enemy to defeat each other 
 ## Health System
 
 #### Summary:
-1. Create a script that stores health and damage for both enemies and players.
+1. Update the PlayerController and Enemy scripts to store health and damage for both enemies and players.
 2. Send damage values from the players to the enemies when an attack lands, and vice versa.
 
 Open the `PlayerController` script and take a look under the region called `Health_variables`.
@@ -41,6 +41,7 @@ private void Die(){
     Destroy(this.gameObject);
 }
 ```
+**Task 3.1: Implement `TakeDamage()`, and `Heal()` in the PlayerController script. Implement `TakeDamage()`, in the Enemy script.**
 
 1. Using the `value` parameter, change `currHealth` inside of the `TakeDamage()` and `Heal()` functions depending on if the player is receiving damage or healing damage.
     - Call the `Die()` function whenever the player receives too much damage.
@@ -49,11 +50,9 @@ private void Die(){
     - In the `Awake()` function of *PlayerController.cs*, set `currHealth` equal to `maxHealth`. This ensures that the player starts with a full health bar when the game starts.
 2. In the `Enemy` script, implement `TakeDamage()` using the same code logic in the `PlayerController` script.
 
-**Task 3.1: Implement `TakeDamage()`, and `Heal()` in the PlayerController script. Implement `TakeDamage()`, in the Enemy script.**
-
 Functions to modify:
 
-*PlayerController.cs* -> `TakeDamage()`, `Heal()`, `Die()`, and `Awake()`
+*PlayerController.cs* -> `TakeDamage()`, `Heal()`, and `Awake()`
 
 *Enemy.cs* -> `TakeDamage()`
 
@@ -81,14 +80,16 @@ foreach(RaycastHit2D hit in hits){
 }
     
 ```
+
+**Task 3.2: Fill in the logic for AttackRoutine() in the PlayerController script and Explode() in the Enemy script.**
+
 1. Using the `transform.CompareTag()` function, call the `TakeDamage()` function inside of the enemy's `Enemy` script.
     - The variable `hit` refers to the GameObject of an enemy within the player’s attack hitbox.
     - This may be a good time to use the `GetComponent<>()` function!
 2. In the `Enemy` script, call `TakeDamage()` inside of the player's `PlayerController` script through the `Explode()` function. 
     - Additionally, destroy the enemy GameObject when the enemy hitbox finds its target.
     - Look at the code from PlayerController and take note of how they access variables from GameObjects that are caught in the raycasts.
-
-**Task 3.2: Fill in the logic for AttackRoutine() in the PlayerController script and Explode() in the Enemy script.**
+    - Make sure that you're not using the `Player` transform variable.
 
 Functions to modify:
 

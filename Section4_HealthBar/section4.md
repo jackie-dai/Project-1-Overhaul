@@ -44,12 +44,12 @@ Now, we have to connect the player’s health to the health bar with the power o
 
 Next, you will make the health bar move depending on the player's health in `PlayerController.cs`.
 
+**Task 4.1: Update Awake(), TakeDamage(), and Heal() to support UI functionality.**
+
 1. In `Awake()`, set `HPSlider.value` to a ratio between the player's *current* health and *maximum* health.
      - This is to make sure the scene loads in with the correct amount of health displayed.
 2. Update `HPSlider.value` in `TakeDamage()` and `Heal()` under `Health_functions` the same way as in `Awake()`.
      - The order that you update UI variables matters! Make sure that the correct values are being displayed in the scene.
-
-**Task 4.1: Update Awake(), TakeDamage(), and Heal() to support UI functionality.**
 
 Functions to modify:
 

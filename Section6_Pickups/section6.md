@@ -4,7 +4,7 @@ In this section, you will implement a chest object and a health potion object, t
 
 #### Summary:
 
-1. Create a heath potion GameObject that heals the player's health when the player walks over it
+1. Create a health potion GameObject that heals the player's health when the player walks over it
 2. Create a chest that drops health potions when the player opens it
 
 ## Setting Up  Chest and HealthPack

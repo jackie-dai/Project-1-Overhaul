@@ -3,15 +3,17 @@
 
 ![Alt Text](https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif)
 
-
 ___
-# In this section, we will be creating the player and their basic actions. This will include a couple things:
+# In this section, we will be kicking off our game development journey by creating the player and implementing their basic actions. This will include a couple things:
 
-#### 1. move in four directions
-#### 2. attack in four directions
+#### 1. Move in four directions
+#### 2. Attack in four directions
 
 {: .important}
-> Spread throughout the entire write up are links to the "solution" on youtube. You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all youtube links.
+> Links to the "solution" on YouTube are spread throughout the entire write up. You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all YouTube links.
+
+{: .note}
+> An important part of debugging in Unity is using `Debug.Log()`, or print statements to figure out the output of your code, if objects are properly assigned to variables, and generally to gain some sort of insight on what your code is doing. Use these to your advantage if you get stuck debugging, such as figuring out where NullReferenceExceptions are coming from!
 ## Player Movement
 
 #### Summary:
