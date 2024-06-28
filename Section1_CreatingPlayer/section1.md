@@ -4,10 +4,11 @@
 ![Alt Text](https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif)
 
 ___
-# In this section, we will be kicking off our game development journey by creating the player and implementing their basic actions. This will include a couple things:
 
-#### 1. Move in four directions
-#### 2. Attack in four directions
+In this section, we will be kicking off our game development journey by creating the player and implementing their basic actions. By the end of this section your player will be able to:
+
+1. Move in four directions
+2. Attack in four directions
 
 {: .important}
 > Links to the "solution" on YouTube are spread throughout the entire write up. You will need to translate the hex code below to ASCII in order to get the link with the correct timestamp. This will be the case for all YouTube links.
