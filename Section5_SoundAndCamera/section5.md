@@ -39,6 +39,4 @@ Solution (translate hex to ASCII):
 
 Now, we want the camera to move with the player. So, click on the *CM vcam1* object in the Hierarchy, and check it. Then, in the `CinemachineVirtualCamera` component, drag your *Player* object into the Follow area. Then, go into the `Main Camera` and check the `CinemachineBrain` component. You should now be able to play the game with the camera centered on the player, as you explore the map.
 
-In your hierarchy, create an empty `GameObject` called *Enemies*, and drag each Enemy into this empty object. This keeps your Hierarchy clean and organized!
-
 Now, you should be able to play your game in the map, and have sound effects along with it! 
