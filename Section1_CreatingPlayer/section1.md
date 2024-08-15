@@ -271,7 +271,7 @@ Except for `hitBoxTiming` and `endAnimationTiming`, feel free to adjust the othe
 
 If you press Play, you will now see that if you attack, the player will pause for a brief moment before resuming movement.
 
-![Gif to show example of final result for section 1](images/example-final.gif)
+![Gif to show example of final result for section 1](images/example-final.gif) Fig 1.3
 
 Congrationlations on finishing this long and tedious section! Feel free to take a tea break before moving onto the next section (:
 
