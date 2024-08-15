@@ -208,7 +208,7 @@ You can now check to make sure that it works by adding another Debug statement i
 
 Finally, in the inspector, change the AttackSpeed to 0.5, since we don't only want to be able to attack every 3 seconds.
 
-Now, we will start on being able to cast the hitbox in the right direction, which is already done for you in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`. *You only need to modify the `Attack()` function by calling `AttackRoutine()` using the function `StartCoroutine()`.*
+Now, we will start on being able to cast the hitbox in the right direction, which is already done for you in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`. **You only need to modify the `Attack()` function by calling `AttackRoutine()` using the function `StartCoroutine()`.**
 
 {: .hint}
 > `StartCoroutine()` takes in a coroutine/IEnumerator as its only argument. https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
