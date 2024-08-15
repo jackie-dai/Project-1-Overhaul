@@ -27,7 +27,7 @@ Look in the hierarchy and select the *Player* object. In the *Sprite Renderer* c
 Add a new component titled *Rigidbody 2D* and a *Capsule Collider 2D*. Make sure that the `Body Type` for the Rigidbody component is `Dynamic` and `Gravity Scale` is `0`. Under **constraints**, Check the `Freeze Rotation` box as well.
 
 In the `Capsule Collider`, we want to set the hitbox of the sprite to be the same size as the sprite. In order to add some depth, we will set the hitbox as the feet of the sprite. You may use the numbers in the image below, and to check if your `Rigidbody` is also correct.
-![Alt text](images/fig1.2.png)
+![Alt text](images/fig1.2.png) Fig 1.1
 
 You should see the *Player.cs* script already attached to the Player. Double click it, and open up the script.
 
@@ -257,7 +257,7 @@ Now, add an `if` statement at the very beginning of `Update()` to check if `isAt
 
 Save your script, and go back into the inspector for the Player object. Set the following variables to these values:
 
-![Default variable values for Player](images/fig1.3.png)
+![Default variable values for Player](images/fig1.3.png) Fig 1.2
 
 - `Movespeed` to 2
 - `Damage` to 2
