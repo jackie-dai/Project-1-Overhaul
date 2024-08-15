@@ -188,10 +188,11 @@ Back in the Unity editor, if you select the Player object, there will be an inpu
 
 Notice when we walk in different directions, the player sprite doesn't switch the way it is facing, and it can only attack in one direction.
 
-**Task 1.4: Use the `currDirection` variable, and set it whenever we call the `Move()` function. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;`**
+**Task 1.4: Inside of the `Move()` function, set `currDirection` to the new direction you're moving towards. For instance, if we are moving to the left, we would set `currDirection = Vector2.left;` `currDirection` will be used to orient the player sprite when performing basic actions.**
 
 {: .note}
-> You only need to worry about **setting** `currDirection`, the code will use `currDirection` to set the correct Player sprite when walking and attacking, that is already taken care of for you. If you would like to set the details of the implementation look inside `AttackRoutine()`and the starter code for `Move()` or look through the video which implements it from scratch.
+> You only need to worry about setting currDirection, the function `AttackRoutine()` and the starter code for `Move()` will use `currDirection` to set the correct Player sprite when walking and attacking, that is already taken care of for you. If you would like to set the details of the implementation look inside `AttackRoutine()` and `Move()` or look through the video which implements it from scratch. *Note: the attack animation won’t work until we correctly implement `AttackRoutine()`”
+
 
 Functions to modify: 
 
@@ -207,7 +208,7 @@ You can now check to make sure that it works by adding another Debug statement i
 
 Finally, in the inspector, change the AttackSpeed to 0.5, since we don't only want to be able to attack every 3 seconds.
 
-Now, we will start on being able to cast the hitbox in the right direction, which is already done for you in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`. You just need to modify the `Attack()` function by calling `AttackRoutine()` using the function `StartCoroutine()`.
+Now, we will start on being able to cast the hitbox in the right direction, which is already done for you in the coroutine, or the `IEnumerator` function titled `AttackRoutine()`. *You only need to modify the `Attack()` function by calling `AttackRoutine()` using the function `StartCoroutine()`.*
 
 {: .hint}
 > `StartCoroutine()` takes in a coroutine/IEnumerator as its only argument. https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
