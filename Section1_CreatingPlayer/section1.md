@@ -96,7 +96,7 @@ To check if we have coded this correctly, put in some value for `moveSpeed` (sta
 > If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the *CinemachineBrain* component, and set the Z position to be -3.
 
 {: .highlight}
-> You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) - this is because the tutorial's implementation of code is not the best way of implementing player movement. Feel free to improve / change this function from the tutorial code as you see fit.
+> You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) -- this is a design choice to not support diagonal movement. Feel free to improve / change this function from the tutorial code as you see fit.
 
 ## Player Attacks
 
@@ -224,7 +224,7 @@ IEnumerator AttackRoutine()
     Debug.Log("Casting hitbox now");
     RaycastHit2D[] hits = Physics2D.BoxCastAll(PlayerRB.position + currDirection, Vector2.one, 0f, Vector2.zero);
 
-    foreach(RaycastHit2D hit in hits)
+    foreach(Hit2D hit in hits)
     {
         if(hit.transform.CompareTag("Enemy"))
         {
@@ -239,7 +239,7 @@ IEnumerator AttackRoutine()
   - We set `isAttacking` to true, and set the player's velocity to 0, as, a design choice, the player will not be able to move when they attack.
   - `yield return new WaitForSeconds(hitBoxTiming);` will basically pause the running of the function for `hitBoxTiming` number of seconds before running the next line.
   - `hits` is an array of all the objects that are colliding with a box that is in front of the player. To learn more about `BoxCastAll`, you can check out the function description [here](https://docs.unity3d.com/ScriptReference/Physics2D.BoxCastAll.html). **We highly suggest you read through the documentation and understand what each input is.** The video also describes each variable at the timestamp given below.
-  - We will then iterate through each hit that we found from our raycast, and if it has the tag of "Enemy", will print the statement "Tons of damage".
+  - We will then iterate through each hit that we found from our , and if it has the tag of "Enemy", will print the statement "Tons of damage".
   - We will then wait `hitBoxTiming` seconds, and then set `isAttacking` back to false.
 
 A video breakdown of this function is avaliable here:
