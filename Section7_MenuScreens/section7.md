@@ -4,6 +4,8 @@ We've come so far, you and I. Our trials and tribulations are no match for your 
 
 Now that the core gameplay has been implemented, we can now round off our game with menu screens that allow the player to navigate from opening the game to playing it and vice versa. Menu screens are a quick way to add polish to your game and improve the user experience, as well as enforcing the style or theme that your game is going for.
 
+#### Summary:
+
 1. Create a GameManager script and UI assets for the GameManager to control
 2. Create scenes for the game to switch between and implement the scene-switching logic
 
