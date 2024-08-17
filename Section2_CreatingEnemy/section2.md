@@ -72,7 +72,7 @@ public Transform player
 
 - `player` will hold a reference to the player's transform component. This way, we can have a easy reference to the player's position for the enemy to move towards. This can be either public or protected (protected means scripts of children game objects have access) because we will need to set this variable inside the player script.
 
-**Task 2.1: Using the three variables above, implement the logic for the enemy's movement system: if the player triggers the LineOfSight collider, set *PlayerController.cs*'s `player` variable to the Transform of the *player* GameObject, then move the enemy towards the player's transform position. You will need to edit the `OnTriggerEnter2D()` function in the *LineOfSight.cs* script, in addition to the `Move()` and `Update()` functions in the *Enemy.cs* script.**
+**Task 2.1: Using the three variables above, implement the logic for the enemy's movement system: **if and only if** the player triggers the LineOfSight collider, *PlayerController.cs*'s `player` variable to the Transform of the *player* GameObject, then move the enemy towards the player's transform position. You will need to edit the `OnTriggerEnter2D()` function in the *LineOfSight.cs* script, in addition to the `Move()` and `Update()` functions in the *Enemy.cs* script.**
 
 Functions to modify:
 
@@ -109,7 +109,7 @@ public GameObject explosionObj;
 
 Inside the same *Enemy* script, there is a `Explode()` function you need to implement. The function will be invoked when the player and enemy make contact. Upon contact, spawn the `explosionObj` in place of the enemy and `Debug.Log("Tons of damage")` if it catches *player* in the `explosionRadius` (you will implement the damage in a later section). Finally, destroy the enemy GameObject. After implementing `Explode()`, call `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy. 
 
-**Task 2.2: Implement Explode() and invoke `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy.**
+**Task 2.2: Implement `Explode()` and invoke `Explode()` in `OnCollisionEnter2D()` if the player collides with the enemy.**
 
 Functions to modify:
 
@@ -117,7 +117,8 @@ Functions to modify:
 
 {: .note}  
 >Use a 2D circle raycast (https://docs.unity3d.com/ScriptReference/Physics2D.CircleCastAll.html) to detect if the player is within the `explosionRadius`. For the direction parameter, you can just pass in `Vector2.zero`.
-`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `Transform` and `tag` property. You can reference the `AttackRoutine()` back in section 1 of making the player. 
+`CircleCastAll()` returns an array of all objects caught in the circle cast. They will be of type `RaycastHit2D` which hold the same basic properties as game objects such as the `Transform` and `tag` property. You can reference the `AttackRoutine()` back in section 1 of making the player. Checkout the `Instantiate()` documentation (https://docs.unity3d.com/ScriptReference/Object.Instantiate.html) as it will prove useful when spawning the explosion animation.
+
 Also make sure to set your attack variables in the Unity inspector before testing your code! We provide a explosion prefab located in `Assets > Prefabs` that you can drag into `explosionObj` in the unity inspector.
 
 Solution (translate hex below to ASCII):
