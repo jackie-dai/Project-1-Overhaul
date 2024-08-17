@@ -72,13 +72,14 @@ Here, we will leave you with a small coding exercise. If you can't do it off the
 **Task 1.1:**
 
 - In `Update()`, you will need to do two things.
-  1. Access the user input values (button presses that correspond to the movement in the game) and map them in Update().
+  1. Access the user input values (button presses that correspond to the movement in the game) and map them in `Update()`.
      -  This will require you access the Input Manager which is located in `Edit -> Project Settings -> Input Manager->Axes` to determine which buttons the project assumes as the positive and negative button for horizontal and vertical movement. For our case, we will use WASD.
      -  Use the function `Input.GetAxisRaw()` to get the raw input for the horizontal and vertical movement (which should be a value from -1 to 1), and set them to `x_input` and `y_input` respectively. **HINT: `Input.GetAxisRaw()` takes in a singular string as its argument. Link to documentation: https://docs.unity3d.com/ScriptReference/Input.GetAxisRaw.html**
   2. Call the Move() function after you've stored the user input values.
 - Now, Implement the Move() function inside the `Movement_functions` region which will move the player based on the `x_input` and `y_input`.
   -  You will need 5 cases to determine what the player should do.
   -  Set `PlayerRB.velocity` to `Vector2.up/down/left/right/zero` based on which case you are on.
+  -  The player's velocity should be scaled by `moveSpeed`
  
 Functions to modify: 
 
