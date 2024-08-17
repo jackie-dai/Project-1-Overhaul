@@ -97,7 +97,7 @@ To check if we have coded this correctly, put in some value for `moveSpeed` (sta
 > If you are having trouble viewing your player, you might have to adjust the z axis of the Main Camera object. First, uncheck the *CinemachineBrain* component, and set the Z position to be -3.
 
 {: .highlight}
-> You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left) -- this is a design choice to not support diagonal movement. Feel free to improve / change this function from the tutorial code as you see fit.
+> You may notice that some keys override the keys of others (when pushing both down and left, your character may only go left), as a design choice, we do not support diagonal movement. Feel free to improve / change this function from the tutorial code as you see fit.
 
 ## Player Attacks
 
